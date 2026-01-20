@@ -14,6 +14,7 @@ export default function AestheticBeautyServicesPage() {
     <ServicePageTemplate
       title="Aesthetic & Beauty Services"
       intro="Our aesthetic and beauty services focus on safe, medical-grade protocols for smoother skin, a healthier glow, and confident results. Every plan is personalized after a consultation, with clear aftercare guidance to protect your skin."
+      image="/images/services/aesthetic.png"
       included={[
         'Laser Hair Removal',
         'Facial Treatments',

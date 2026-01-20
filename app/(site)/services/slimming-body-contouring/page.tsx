@@ -14,6 +14,7 @@ export default function SlimmingBodyContouringPage() {
     <ServicePageTemplate
       title="Slimming & Body Contouring"
       intro="Non-invasive body treatments planned around your goals, comfort, and safety."
+      image="/images/services/slimming.png"
       included={["Slimming Treatment", "Body Contouring", "Targeted Areas"]}
       benefits={[
         'Non-invasive options supervised by professionals',

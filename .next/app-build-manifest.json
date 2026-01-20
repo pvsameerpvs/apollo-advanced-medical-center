@@ -55,6 +55,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(site)/services/dental-services/page.js"
+    ],
+    "/(site)/services/laser-hair-removal/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(site)/services/laser-hair-removal/page.js"
     ]
   }
 }

@@ -13,6 +13,7 @@ export default function FacialSkinCarePage() {
     <ServicePageTemplate
       title="Facial & Skin Care"
       intro="Personalized facials and skin care protocols for deep cleansing, hydration, and a healthier glow. Every session begins with skin analysis and ends with clear aftercare steps."
+      image="/images/services/facial.png"
       included={["Deep Cleansing", "Hydration & Glow", "Acne Care", "Skin Rejuvenation"]}
       benefits={[
         'Improves skin texture, hydration, and overall glow',

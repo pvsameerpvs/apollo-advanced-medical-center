@@ -14,6 +14,7 @@ export default function LaserHairRemovalPage() {
     <ServicePageTemplate
       title="Laser Hair Removal"
       intro="Our laser hair removal treatments are designed for comfort, safety, and consistent hair reduction. We tailor settings to your skin type and treatment area, and provide aftercare guidance to protect your results."
+      image="/images/services/laser.png"
       benefits={[
         'Long-term hair reduction and smoother skin',
         'Fast sessions with targeted areas available',

@@ -14,6 +14,7 @@ export default function DentalServicesPage() {
     <ServicePageTemplate
       title="Dental Services"
       intro="From routine cleaning to advanced restorative work, our dental team provides gentle, medical-grade care designed around comfort, hygiene, and long-term oral health. Every plan includes clear options and aftercare instructions."
+      image="/images/services/dental.png"
       included={[
         'Teeth Whitening',
         'Scaling & Polishing',
