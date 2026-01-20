@@ -3,5 +3,7 @@
   "/(site)/about-us/page": "app/(site)/about-us/page.js",
   "/(site)/blog/page": "app/(site)/blog/page.js",
   "/(site)/contact-us/page": "app/(site)/contact-us/page.js",
-  "/(site)/appointment/page": "app/(site)/appointment/page.js"
+  "/(site)/appointment/page": "app/(site)/appointment/page.js",
+  "/(site)/page": "app/(site)/page.js",
+  "/(site)/services/dental-services/page": "app/(site)/services/dental-services/page.js"
 }
