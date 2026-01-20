@@ -40,6 +40,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(site)/doctors/[slug]/page.js"
+    ],
+    "/(site)/contact-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(site)/contact-us/page.js"
     ]
   }
 }

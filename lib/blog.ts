@@ -7,6 +7,7 @@ export type BlogPostMeta = {
   description: string
   date: string
   category: string
+  image: string
 }
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
@@ -41,6 +42,7 @@ export function getAllPosts(): BlogPostMeta[] {
         description: data.description || '',
         date: data.date || '',
         category: data.category || 'Blog',
+        image: data.image || '/images/blog/placeholder.jpg',
       }
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))

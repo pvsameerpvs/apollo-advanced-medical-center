@@ -1,8 +1,8 @@
 {
   "/(site)/services/page": "app/(site)/services/page.js",
-  "/(site)/services/aesthetic-beauty-services/page": "app/(site)/services/aesthetic-beauty-services/page.js",
   "/(site)/doctors/page": "app/(site)/doctors/page.js",
   "/(site)/doctors/[slug]/page": "app/(site)/doctors/[slug]/page.js",
   "/(site)/about-us/page": "app/(site)/about-us/page.js",
-  "/(site)/blog/page": "app/(site)/blog/page.js"
+  "/(site)/blog/page": "app/(site)/blog/page.js",
+  "/(site)/contact-us/page": "app/(site)/contact-us/page.js"
 }
