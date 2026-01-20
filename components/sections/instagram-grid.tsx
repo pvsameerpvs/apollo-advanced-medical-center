@@ -15,7 +15,15 @@ const COMMENTS_2 = [
   { user: 'Layla H.', text: 'Love the new clinic vibes! ✨' },
 ]
 
-export function InstagramGrid({ compact = false }: { compact?: boolean }) {
+export function InstagramGrid({ 
+  compact = false,
+  title = "Real Results, Real Stories",
+  description = "Watch our latest treatments and patient transformations on Instagram."
+}: { 
+  compact?: boolean;
+  title?: string;
+  description?: string;
+}) {
   const reelIds = ['DS2YBe1EbUy', 'DS2XMLGEU3v']
 
   return (
@@ -24,10 +32,10 @@ export function InstagramGrid({ compact = false }: { compact?: boolean }) {
         <div className="mb-12 flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
           <div className="max-w-2xl">
             <h2 className="text-3xl font-bold tracking-tight text-brand-green sm:text-4xl">
-              Real Results, Real Stories
+              {title}
             </h2>
             <p className="mt-4 text-lg text-ui-text/80">
-              Watch our latest treatments and patient transformations on Instagram.
+              {description}
             </p>
           </div>
           <a
