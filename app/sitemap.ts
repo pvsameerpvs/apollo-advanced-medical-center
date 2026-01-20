@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [...staticPages, ...servicePages].map((path) => ({
     url: `${base}${path}`,
     lastModified: now,
-    changeFrequency: 'weekly',
+    changeFrequency: 'weekly' as const,
     priority: path === '/' ? 1 : 0.8,
   }))
 
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...doctors.map((d) => ({
       url: `${base}/doctors/${d.slug}`,
       lastModified: now,
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.7,
     }))
   )

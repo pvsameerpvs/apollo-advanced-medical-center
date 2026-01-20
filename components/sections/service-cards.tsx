@@ -1,58 +1,93 @@
 import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import { ChevronRight, Check } from 'lucide-react'
 
 import { serviceCategories } from '@/lib/services'
 
 export function ServiceCards() {
   return (
-    <section className="py-14 md:py-20">
+    <section className="py-16 md:py-24 bg-ui-bg/50">
       <div className="container">
-        <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold text-brand-green md:text-3xl">Services Designed Around Your Goals</h2>
-          <p className="mt-2 text-sm text-ui-text/80 md:text-base">
+        <div className="mx-auto max-w-3xl text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-brand-green sm:text-4xl">
+            Services Designed Around Your Goals
+          </h2>
+          <p className="mt-4 text-lg text-ui-text/80">
             Dental and aesthetic treatments delivered with medical-grade safety, transparent plans, and results you can trust.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {serviceCategories.slice(0, 4).map((cat) => (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {serviceCategories.map((cat, index) => (
             <Link
               key={cat.href}
               href={cat.href}
-              className="group rounded-2xl border border-ui-border bg-white p-6 shadow-soft transition hover:-translate-y-0.5"
+              className={`group relative flex flex-col overflow-hidden rounded-3xl border border-ui-border bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                index < 2 ? 'md:col-span-1 lg:col-span-1' : '' // Keep consistent grid
+              }`}
             >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-lg font-semibold text-brand-green">{cat.title}</p>
-                  <p className="mt-2 text-sm text-ui-text/80">{cat.description}</p>
+              {/* Image Header */}
+              <div className="relative h-48 w-full overflow-hidden bg-brand-green/5">
+                <Image
+                  src={cat.image}
+                  alt={cat.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 transition-opacity group-hover:opacity-50" />
+                
+                {/* Overlay Text */}
+                <div className="absolute bottom-4 left-6 right-6">
+                  <h3 className="text-xl font-bold text-white group-hover:text-brand-orangeSoft transition-colors">
+                    {cat.title}
+                  </h3>
                 </div>
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-orangeSoft">
-                  <ChevronRight className="h-5 w-5 text-brand-orange transition group-hover:translate-x-0.5" />
-                </span>
               </div>
 
-              <ul className="mt-5 grid gap-2 text-sm text-ui-text/75 sm:grid-cols-2">
-                {cat.items.slice(0, 6).map((i) => (
-                  <li key={i} className="rounded-xl bg-ui-bg px-3 py-2">
-                    {i}
-                  </li>
-                ))}
-              </ul>
+              {/* Content */}
+              <div className="flex flex-1 flex-col p-6">
+                <p className="mb-6 text-sm leading-relaxed text-ui-text/80">
+                  {cat.description}
+                </p>
 
-              <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-orange">
-                View Details
-                <ChevronRight className="h-4 w-4" />
+                {/* Service List */}
+                <ul className="mb-6 flex-1 space-y-2">
+                  {cat.items.slice(0, 4).map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-ui-text/75">
+                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-brand-green/10 text-brand-green">
+                        <Check className="h-2.5 w-2.5" />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                  {cat.items.length > 4 && (
+                    <li className="text-xs font-medium text-brand-orange">
+                      + {cat.items.length - 4} more treatments
+                    </li>
+                  )}
+                </ul>
+
+                {/* Footer / CTA */}
+                <div className="mt-auto flex items-center justify-between border-t border-ui-border/50 pt-4">
+                  <span className="text-sm font-bold text-brand-green group-hover:text-brand-orange transition-colors">
+                    Learn More
+                  </span>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-orangeSoft/50 text-brand-orange transition-all group-hover:bg-brand-orange group-hover:text-white">
+                    <ChevronRight className="h-4 w-4" />
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="mt-8">
+        <div className="mt-16 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center justify-center rounded-xl border border-ui-border bg-white px-5 py-3 text-sm font-medium text-ui-text hover:bg-brand-orangeSoft"
+            className="inline-flex items-center justify-center rounded-xl bg-brand-green px-8 py-4 text-base font-semibold text-white shadow-lg shadow-brand-green/25 transition-all hover:bg-brand-green/90 hover:shadow-xl hover:shadow-brand-green/35"
           >
-            View All Services
+            View Full Service Menu
           </Link>
         </div>
       </div>
