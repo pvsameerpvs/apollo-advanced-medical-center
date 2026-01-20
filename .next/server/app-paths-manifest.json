@@ -1,6 +1,6 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/(site)/page": "app/(site)/page.js",
   "/(site)/services/aesthetic-beauty-services/page": "app/(site)/services/aesthetic-beauty-services/page.js",
-  "/(site)/doctors/[slug]/page": "app/(site)/doctors/[slug]/page.js"
+  "/(site)/doctors/[slug]/page": "app/(site)/doctors/[slug]/page.js",
+  "/(site)/services/laser-hair-removal/page": "app/(site)/services/laser-hair-removal/page.js"
 }
