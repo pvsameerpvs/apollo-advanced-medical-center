@@ -1,10 +1,22 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google'
 
 import './globals.css'
 import { site } from '@/lib/site'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { cn } from '@/lib/utils'
+
+const fontSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+const fontHeading = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-heading',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -48,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <body>
+      <body className={cn('min-h-screen bg-white font-sans antialiased', fontSans.variable, fontHeading.variable)}>
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

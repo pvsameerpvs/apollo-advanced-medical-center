@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/doctors/dr-shaziaanjum":{},"/doctors/dr-farida":{},"/doctors/hind-belharar":{},"/doctors/ellie-lolita-cruz":{}},"dynamicRoutes":{"/doctors/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/doctors/[slug]","routeRegex":"^\\/doctors\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"f8610a70916ff587744f854b5fe7d434","previewModeSigningKey":"63dc5ffc40f2c53ae198a935901b9ac80c1466fec0e4c2a39cf9f279d2a7f274","previewModeEncryptionKey":"fe4731435d99a6defcd0065d9ff74e2fc5f666007c4add8cf12138b81fe6d44b"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "14963b356359544f2fe87cd400796886",
+    "previewModeSigningKey": "42a0d5866104baab41ef56831ca46329b6e6cbe8f74947bb45fc7195358b45f9",
+    "previewModeEncryptionKey": "b6b68954142bf2f4b2a5c01e9f6c648049f59aedecd9c82eb736019168ddc6a4"
+  }
+}
