@@ -1,51 +1,75 @@
 import Link from 'next/link'
-import { Instagram, MapPin, Phone } from 'lucide-react'
+import Image from 'next/image'
+import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Clock } from 'lucide-react'
 
 import { site } from '@/lib/site'
 
 const footerLinks = [
   { href: '/about-us', label: 'About Us' },
-  { href: '/services', label: 'Services' },
-  { href: '/doctors', label: 'Doctors' },
-  { href: '/appointment', label: 'Appointment' },
+  { href: '/doctors', label: 'Our Doctors' },
+  { href: '/blog', label: 'Health Blog' },
   { href: '/contact-us', label: 'Contact Us' },
+]
+
+const servicesLinks = [
+  { href: '/services/dental-services', label: 'Dental Care' },
+  { href: '/services/aesthetic-beauty-services', label: 'Aesthetics' },
+  { href: '/services/laser-hair-removal', label: 'Laser Hair Removal' },
+  { href: '/services/facial-skin-care', label: 'Facials & Skin' },
 ]
 
 export function SiteFooter() {
   const wa = `https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`
 
   return (
-    <footer className="border-t border-ui-border bg-white">
-      <div className="container py-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          <div>
-            <p className="text-lg font-semibold text-brand-green">Apollo Advanced Medical Center</p>
-            <p className="mt-3 text-sm text-ui-text/80">
-              Trusted medical, dental & aesthetic care in Deira, Dubai. DHA-licensed doctors, advanced technology, and personalized treatment plans.
+    <footer className="bg-brand-green text-white">
+      <div className="container py-16 md:py-20">
+        <div className="grid gap-12 lg:grid-cols-4">
+          {/* Brand & Info */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-block">
+              <Image
+                src="/appolo-logo.png"
+                alt="Apollo Advanced Medical Center"
+                width={200}
+                height={60}
+                className="h-14 w-auto object-contain brightness-0 invert"
+              />
+            </Link>
+            <p className="mt-4 text-sm leading-relaxed text-white/80">
+              Your trusted destination for advanced medical, dental, and aesthetic care in Deira, Dubai. Licensed excellence you can rely on.
             </p>
-
-            <div className="mt-5 grid gap-3 text-sm">
-              <a className="inline-flex items-center gap-2 text-brand-green hover:text-brand-greenDark" href={`tel:${site.contact.phone}`}>
-                <Phone className="h-4 w-4 text-brand-orange" />
-                {site.contact.phone}
+            <div className="mt-6 flex gap-4">
+              <a
+                href={site.instagram.url}
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
+              >
+                <Instagram className="h-5 w-5" />
               </a>
-              <a className="inline-flex items-center gap-2 text-brand-green hover:text-brand-greenDark" href={site.instagram.url} target="_blank" rel="noreferrer">
-                <Instagram className="h-4 w-4 text-brand-orange" />
-                {site.instagram.handle}
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
+              >
+                <Facebook className="h-5 w-5" />
               </a>
-              <div className="inline-flex items-center gap-2 text-ui-text/80">
-                <MapPin className="h-4 w-4 text-brand-orange" />
-                Deira, Dubai, UAE
-              </div>
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <p className="text-sm font-semibold text-ui-text">Quick Links</p>
-            <ul className="mt-4 grid gap-2">
+            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+            <ul className="mt-4 space-y-3">
               {footerLinks.map((l) => (
                 <li key={l.href}>
-                  <Link className="text-sm text-ui-text/80 hover:text-brand-green" href={l.href}>
+                  <Link href={l.href} className="text-sm text-white/80 transition-colors hover:text-brand-orange">
                     {l.label}
                   </Link>
                 </li>
@@ -53,57 +77,53 @@ export function SiteFooter() {
             </ul>
           </div>
 
+          {/* Services */}
           <div>
-            <p className="text-sm font-semibold text-ui-text">Clinic Timings</p>
-            <div className="mt-4 rounded-2xl border border-ui-border bg-ui-bg p-5">
-              <div className="grid gap-2">
-                {site.openingHours.map((oh) => (
-                  <div key={oh.day} className="flex items-center justify-between gap-3 text-sm">
-                    <span className="font-medium text-ui-text">{oh.day}</span>
-                    <span className="text-ui-text/80">{oh.hours}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 grid gap-3">
-                <a className="inline-flex items-center justify-center rounded-xl bg-brand-orange px-5 py-3 text-sm font-medium text-white hover:bg-[#e67234]" href={wa} target="_blank" rel="noreferrer">
-                  WhatsApp for Appointment
-                </a>
-              </div>
-            </div>
+            <h3 className="text-lg font-semibold text-white">Our Services</h3>
+            <ul className="mt-4 space-y-3">
+              {servicesLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm text-white/80 transition-colors hover:text-brand-orange">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-lg font-semibold text-white">Contact & Hours</h3>
+            <ul className="mt-4 space-y-4">
+              <li className="flex items-start gap-3 text-sm text-white/80">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-orange" />
+                <span>
+                  {site.address.street}, {site.address.city}, {site.address.country}
+                </span>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-white/80">
+                 <Phone className="h-4 w-4 shrink-0 text-brand-orange" />
+                 <a href={`tel:${site.contact.phone}`} className="hover:text-white">{site.contact.phone}</a>
+              </li>
+               <li className="flex items-center gap-3 text-sm text-white/80">
+                 <Mail className="h-4 w-4 shrink-0 text-brand-orange" />
+                 <a href={`mailto:${site.contact.email}`} className="hover:text-white">{site.contact.email}</a>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-white/80">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-orange" />
+                <div className="flex flex-col gap-1">
+                   {site.openingHours.map(oh => (
+                       <span key={oh.day}>{oh.day}: {oh.hours}</span>
+                   ))}
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-ui-border pt-6 text-xs text-ui-text/70 md:flex-row md:items-center md:justify-between">
-          <p>
-            © {new Date().getFullYear()} Apollo Advanced Medical Center. All rights reserved.
-          </p>
-          <p className="text-ui-text/70">
-            DHA-licensed doctors & therapists. Patient safety and privacy prioritized.
-          </p>
-        </div>
-
-        <div className="mt-6">
-          <p className="text-sm font-semibold text-ui-text">Watch Our Treatments in Action</p>
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {[
-              { href: site.instagram.url, label: 'Laser Hair Removal' },
-              { href: site.instagram.url, label: 'Hydrafacial' },
-              { href: site.instagram.url, label: 'Teeth Whitening' },
-              { href: site.instagram.url, label: 'BB Glow' },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group relative overflow-hidden rounded-2xl border border-ui-border bg-ui-bg p-4"
-              >
-                <div className="text-sm font-medium text-ui-text">{item.label}</div>
-                <div className="mt-2 text-xs text-ui-text/70">Open on Instagram</div>
-                <div className="pointer-events-none absolute inset-0 bg-brand-orange/0 transition group-hover:bg-brand-orange/15" />
-              </a>
-            ))}
-          </div>
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-sm text-white/60 md:flex-row md:text-left">
+           <p>© {new Date().getFullYear()} Apollo Advanced Medical Center. All rights reserved.</p>
+          
         </div>
       </div>
     </footer>

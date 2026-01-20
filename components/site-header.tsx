@@ -17,7 +17,6 @@ const nav = [
   { href: '/services', label: 'Services' },
   { href: '/doctors', label: 'Doctors' },
   { href: '/blog', label: 'Blog' },
-  { href: '/appointment', label: 'Appointment' },
   { href: '/contact-us', label: 'Contact Us' },
 ]
 
