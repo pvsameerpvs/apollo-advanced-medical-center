@@ -17,8 +17,8 @@ export const site = {
     email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || 'appointments@example.com',
   },
   instagram: {
-    handle: '@apolloadvancedmedicalcenter',
-    url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/',
+    handle: '@apollo_medical_center',
+    url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/apollo_medical_center?igsh=MWdxcmRlYTUwM2duag==',
   },
   openingHours: [
     { day: 'Mon-Sat', hours: '10:00 AM - 10:00 PM' },
