@@ -1,8 +1,5 @@
 {
-  "/(site)/page": "app/(site)/page.js",
-  "/(site)/services/aesthetic-beauty-services/page": "app/(site)/services/aesthetic-beauty-services/page.js",
-  "/(site)/doctors/[slug]/page": "app/(site)/doctors/[slug]/page.js",
-  "/(site)/services/laser-hair-removal/page": "app/(site)/services/laser-hair-removal/page.js",
   "/(site)/about-us/page": "app/(site)/about-us/page.js",
-  "/(site)/blog/page": "app/(site)/blog/page.js"
+  "/(site)/services/page": "app/(site)/services/page.js",
+  "/(site)/page": "app/(site)/page.js"
 }

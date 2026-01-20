@@ -6,35 +6,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(site)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(site)/page.js"
-    ],
-    "/(site)/services/aesthetic-beauty-services/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(site)/services/aesthetic-beauty-services/page.js"
-    ],
-    "/(site)/doctors/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(site)/doctors/[slug]/page.js"
-    ],
-    "/(site)/services/laser-hair-removal/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(site)/services/laser-hair-removal/page.js"
-    ],
     "/(site)/about-us/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(site)/about-us/page.js"
     ],
-    "/(site)/blog/page": [
+    "/(site)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/blog/page.js"
+      "static/chunks/app/(site)/page.js"
+    ],
+    "/(site)/services/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(site)/services/page.js"
     ]
   }
 }
