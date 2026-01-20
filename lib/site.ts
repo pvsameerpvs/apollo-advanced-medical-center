@@ -5,10 +5,10 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
   locale: 'en_AE',
   address: {
-    street: 'Deira',
+    street: 'Ba-1 Bin Jarsh Building, Union Metro Station Exit 2, Deira',
     city: 'Dubai',
     region: 'Dubai',
-    country: 'AE',
+    country: 'UAE',
     postalCode: '',
   },
   contact: {

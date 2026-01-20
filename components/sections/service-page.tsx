@@ -18,7 +18,7 @@ export function ServicePageTemplate(props: {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-brand-green">
+      <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-brand-green py-20">
         <Image
           src={image}
           alt={title}

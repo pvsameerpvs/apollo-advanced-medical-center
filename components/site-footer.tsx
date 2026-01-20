@@ -104,6 +104,8 @@ export function SiteFooter() {
               <li className="flex items-center gap-3 text-sm text-white/80">
                  <Phone className="h-4 w-4 shrink-0 text-brand-orange" />
                  <a href={`tel:${site.contact.phone}`} className="hover:text-white">{site.contact.phone}</a>
+                 <a href={`tel:${site.contact.whatsapp}`} className="hover:text-white">{site.contact.whatsapp}</a>
+
               </li>
                <li className="flex items-center gap-3 text-sm text-white/80">
                  <Mail className="h-4 w-4 shrink-0 text-brand-orange" />
