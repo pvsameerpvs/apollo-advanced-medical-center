@@ -3,7 +3,9 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import { createPortal } from 'react-dom'
 import { Menu, Phone, X } from 'lucide-react'
+import Image from 'next/image'
 
 import { cn } from '@/lib/utils'
 import { site } from '@/lib/site'
@@ -28,15 +30,17 @@ export function SiteHeader() {
   }, [pathname])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ui-border bg-white/90 backdrop-blur">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-40 border-b border-ui-border bg-white/80 backdrop-blur-md transition-all">
+      <div className="container flex h-24 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-brand-green text-white font-semibold">
-            A
-          </span>
-          <span className="font-semibold text-ui-text">
-            <span className="text-brand-green">Apollo</span> Advanced Medical Center
-          </span>
+          <Image
+             src="/appolo-logo.png"
+             alt="Apollo Advanced Medical Center"
+             width={300}
+             height={80}
+             className="h-20 w-auto object-contain"
+             priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
@@ -80,52 +84,63 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {open ? (
-        <div className="fixed inset-0 z-50 bg-black/40 lg:hidden" onClick={() => setOpen(false)}>
-          <div
-            className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-white p-5"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-semibold text-brand-green">Menu</span>
-              <button
-                type="button"
-                className="rounded-xl border border-ui-border bg-white p-2"
-                aria-label="Close menu"
+      {open
+        ? createPortal(
+            <div className="fixed inset-0 z-[100] lg:hidden">
+              <div
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
                 onClick={() => setOpen(false)}
+              />
+              <div
+                className="fixed inset-y-0 right-0 z-[101] w-[85%] max-w-sm bg-white p-6 shadow-2xl transition-transform duration-300 ease-in-out animate-in slide-in-from-right"
+                onClick={(e) => e.stopPropagation()}
               >
-                <X className="h-5 w-5 text-ui-text" />
-              </button>
-            </div>
+                <div className="flex items-center justify-between border-b border-ui-border/50 pb-4">
+                  <span className="text-lg font-bold text-brand-green">Menu</span>
+                  <button
+                    type="button"
+                    className="rounded-full bg-ui-bg p-2 text-ui-text hover:bg-brand-orange/10 hover:text-brand-orange transition-colors"
+                    aria-label="Close menu"
+                    onClick={() => setOpen(false)}
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
 
-            <div className="mt-5 grid gap-1">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-xl px-3 py-2 text-sm font-medium text-ui-text hover:bg-brand-orangeSoft"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+                <div className="mt-8 grid gap-2">
+                  {nav.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="rounded-xl px-4 py-3 text-base font-medium text-ui-text hover:bg-brand-green/5 hover:text-brand-green transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
 
-            <div className="mt-6 grid gap-3">
-              <Button asChild>
-                <Link href="/appointment">Book Appointment</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <a href={`tel:${site.contact.phone}`}>Call Now</a>
-              </Button>
-              <Button asChild variant="green">
-                <a href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer">
-                  WhatsApp
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      ) : null}
+                <div className="mt-8 grid gap-3 border-t border-ui-border/50 pt-6">
+                  <Button asChild size="lg" className="w-full">
+                    <Link href="/appointment">Book Appointment</Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="w-full justify-center">
+                    <a href={`tel:${site.contact.phone}`} className="flex items-center gap-2">
+                      <Phone className="h-4 w-4 text-brand-orange" />
+                      Call Now
+                    </a>
+                  </Button>
+                  <Button asChild variant="green" size="lg" className="w-full justify-center">
+                    <a href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="flex items-center gap-2">
+                      <span className="font-bold">WhatsApp</span>
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
     </header>
   )
 }
