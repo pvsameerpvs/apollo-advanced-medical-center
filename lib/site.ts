@@ -21,7 +21,7 @@ export const site = {
     url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/apollo_medical_center?igsh=MWdxcmRlYTUwM2duag==',
   },
   openingHours: [
-    { day: 'Mon-Sat', hours: '10:00 AM - 10:00 PM' },
+    { day: 'Mon-Sat', hours: '09:00 AM - 09:00 PM' },
     { day: 'Sun', hours: 'Closed' },
   ],
 } as const
