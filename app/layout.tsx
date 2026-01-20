@@ -33,10 +33,19 @@ export const metadata: Metadata = {
     title: 'Apollo Advanced Medical Center',
     description: site.description,
     siteName: site.name,
+    images: [
+      {
+        url: '/appolo-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Apollo Advanced Medical Center Logo',
+      },
+    ],
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: [{ url: '/favicon.ico' }],
+    icon: [{ url: '/images/fevic.png' }],
+    apple: [{ url: '/images/fevic.png' }],
   },
 }
 
