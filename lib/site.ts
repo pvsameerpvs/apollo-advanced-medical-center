@@ -12,8 +12,8 @@ export const site = {
     postalCode: '',
   },
   contact: {
-    phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '+971000000000',
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '+971000000000',
+    phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '0428644876',
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '+971558569418',
     email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || 'appointments@example.com',
   },
   instagram: {

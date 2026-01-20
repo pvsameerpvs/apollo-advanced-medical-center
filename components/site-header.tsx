@@ -95,29 +95,45 @@ export function SiteHeader() {
                 className="fixed inset-y-0 right-0 z-[101] w-[85%] max-w-sm bg-white p-6 shadow-2xl transition-transform duration-300 ease-in-out animate-in slide-in-from-right"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center justify-between border-b border-ui-border/50 pb-4">
-                  <span className="text-lg font-bold text-brand-green">Menu</span>
+                <div className="flex items-center justify-between border-b border-ui-border/50 pb-6">
+                  <div className="relative h-12 w-40">
+                    <Image
+                      src="/appolo-logo.png"
+                      alt="Apollo Advanced Medical Center"
+                      fill
+                      className="object-contain object-left"
+                      priority
+                    />
+                  </div>
                   <button
                     type="button"
-                    className="rounded-full bg-ui-bg p-2 text-ui-text hover:bg-brand-orange/10 hover:text-brand-orange transition-colors"
+                    className="rounded-full bg-ui-bg p-2.5 text-ui-text hover:bg-brand-orange/10 hover:text-brand-orange transition-colors"
                     aria-label="Close menu"
                     onClick={() => setOpen(false)}
                   >
-                    <X className="h-5 w-5" />
+                    <X className="h-6 w-6" />
                   </button>
                 </div>
 
-                <div className="mt-8 grid gap-2">
-                  {nav.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="rounded-xl px-4 py-3 text-base font-medium text-ui-text hover:bg-brand-green/5 hover:text-brand-green transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                <div className="mt-8 grid gap-1">
+                  {nav.map((item) => {
+                    const active = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "rounded-xl px-4 py-3 text-base font-medium transition-all duration-200",
+                          active 
+                            ? "bg-brand-green/10 text-brand-green font-semibold translate-x-1" 
+                            : "text-ui-text hover:bg-ui-bg hover:translate-x-1"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    )
+                  })}
                 </div>
 
                 <div className="mt-8 grid gap-3 border-t border-ui-border/50 pt-6">
