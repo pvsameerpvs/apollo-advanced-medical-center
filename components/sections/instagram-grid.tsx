@@ -1,6 +1,19 @@
 import { Instagram } from 'lucide-react'
 
 import { site } from '@/lib/site'
+import { CommentAnimation } from '@/components/ui/comment-animation'
+
+const COMMENTS_1 = [
+  { user: 'Sarah M.', text: 'The hydrafacial results are amazing! 😍' },
+  { user: 'Ahmed K.', text: 'Best dental clinic in Dubai. Very professional.' },
+  { user: 'Fatima A.', text: 'Dr. Shazia is so gentle and kind. ❤️' },
+]
+
+const COMMENTS_2 = [
+  { user: 'Jessica R.', text: 'Laser hair removal was painless. Highly recommend!' },
+  { user: 'Mike D.', text: 'Finally confident in my smile again.' },
+  { user: 'Layla H.', text: 'Love the new clinic vibes! ✨' },
+]
 
 export function InstagramGrid({ compact = false }: { compact?: boolean }) {
   const reelIds = ['DS2YBe1EbUy', 'DS2XMLGEU3v']
@@ -28,8 +41,8 @@ export function InstagramGrid({ compact = false }: { compact?: boolean }) {
           </a>
         </div>
 
-        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-          {reelIds.map((id) => (
+        <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
+          {reelIds.map((id, index) => (
             <div
               key={id}
               className="relative aspect-[9/16] w-full overflow-hidden rounded-[2.5rem] border border-ui-border bg-white shadow-2xl shadow-brand-green/5 ring-1 ring-black/5"
@@ -41,6 +54,7 @@ export function InstagramGrid({ compact = false }: { compact?: boolean }) {
                 scrolling="no"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               />
+              <CommentAnimation comments={index === 0 ? COMMENTS_1 : COMMENTS_2} />
             </div>
           ))}
         </div>
