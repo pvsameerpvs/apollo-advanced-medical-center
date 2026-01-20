@@ -5,7 +5,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
   locale: 'en_AE',
   address: {
-    street: 'Ba-1 Bin Jarsh Building, Union Metro Station Exit 2, Deira',
+    street: 'BA1 Mezzanine floor Bin jarsh building, near fish roundabout, Al rigga Deira',
     city: 'Dubai',
     region: 'Dubai',
     country: 'UAE',
@@ -14,7 +14,7 @@ export const site = {
   contact: {
     phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '0428644876',
     whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '+971558569418',
-    email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || 'appointments@example.com',
+    email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || ' apolloadvancedmedicalcenter@gmail.com',
   },
   instagram: {
     handle: '@apollo_medical_center',
