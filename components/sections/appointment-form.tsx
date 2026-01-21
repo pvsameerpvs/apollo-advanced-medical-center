@@ -24,6 +24,7 @@ import { appointmentSchema, type AppointmentPayload } from '@/lib/appointment-sc
 import { doctors } from '@/lib/doctors'
 import { serviceCategories } from '@/lib/services'
 import { site } from '@/lib/site'
+import { WhatsAppIcon } from '@/components/icons/whatsapp'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -309,7 +310,7 @@ export function AppointmentForm() {
             <div className="mt-8 grid gap-4">
                <Button asChild size="lg" className="h-14 rounded-xl bg-brand-green hover:bg-brand-green/90 text-white shadow-lg shadow-brand-green/10" variant="green">
                   <a href={waLink} target="_blank" rel="noreferrer" className="flex items-center gap-3">
-                    <MessageCircle className="h-6 w-6" />
+                    <WhatsAppIcon className="h-6 w-6" />
                     Chat on WhatsApp
                   </a>
                </Button>

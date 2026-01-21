@@ -3,6 +3,7 @@ import { MessageCircle, PhoneCall } from 'lucide-react'
 
 import { site } from '@/lib/site'
 import { Button } from '@/components/ui/button'
+import { WhatsAppIcon } from '@/components/icons/whatsapp'
 
 export function CtaBand() {
   const wa = `https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`
@@ -33,7 +34,7 @@ export function CtaBand() {
               </Button>
               <Button asChild variant="green">
                 <a href={wa} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                  <MessageCircle className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4 w-4" />
                   WhatsApp
                 </a>
               </Button>
