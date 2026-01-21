@@ -316,7 +316,7 @@ export function AppointmentForm() {
                <Button asChild size="lg" className="h-14 rounded-xl border-brand-green text-brand-green hover:bg-brand-green/5" variant="outline">
                   <a href={`tel:${site.contact.phone}`} className="flex items-center gap-3">
                     <Phone className="h-5 w-5" />
-                    Call +971 4 227 0004
+                    Call {site.contact.phone}
                   </a>
                </Button>
             </div>

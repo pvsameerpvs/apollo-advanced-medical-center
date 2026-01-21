@@ -1,4 +1,5 @@
 {
   "/(site)/services/facial-skin-care/page": "app/(site)/services/facial-skin-care/page.js",
-  "/(site)/services/page": "app/(site)/services/page.js"
+  "/(site)/services/page": "app/(site)/services/page.js",
+  "/(site)/appointment/page": "app/(site)/appointment/page.js"
 }

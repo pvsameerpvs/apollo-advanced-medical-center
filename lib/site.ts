@@ -13,7 +13,7 @@ export const site = {
   },
   contact: {
     phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '0428644876',
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '+971558569418',
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '+971 52 892 0301',
     email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || ' apolloadvancedmedicalcenter@gmail.com',
   },
   instagram: {
