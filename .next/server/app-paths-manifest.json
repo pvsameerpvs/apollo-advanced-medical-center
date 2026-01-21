@@ -1,6 +1,4 @@
 {
-  "/(site)/page": "app/(site)/page.js",
-  "/(site)/services/page": "app/(site)/services/page.js",
-  "/(site)/services/dental-services/page": "app/(site)/services/dental-services/page.js",
-  "/(site)/doctors/[slug]/page": "app/(site)/doctors/[slug]/page.js"
+  "/(site)/services/facial-skin-care/page": "app/(site)/services/facial-skin-care/page.js",
+  "/(site)/services/page": "app/(site)/services/page.js"
 }

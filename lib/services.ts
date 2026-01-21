@@ -49,7 +49,7 @@ export const serviceCategories: ServiceCategory[] = [
     title: 'Facial & Skin Care',
     description: 'Personalized facials, deep cleansing, hydration, and rejuvenation for healthier-looking skin.',
     href: '/services/facial-skin-care',
-    image: '/images/services/facial.png',
+    image: '/images/services/facial.jpeg',
     items: ['Deep Cleansing', 'Hydration & Glow', 'Acne Care', 'Skin Rejuvenation'],
   },
   {
