@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 
 import './globals.css'
 import { site } from '@/lib/site'
@@ -8,12 +8,12 @@ import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { cn } from '@/lib/utils'
 
-const fontSans = Plus_Jakarta_Sans({
+const fontSans = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
 })
 
-const fontHeading = Playfair_Display({
+const fontHeading = Outfit({
   subsets: ['latin'],
   variable: '--font-heading',
 })
