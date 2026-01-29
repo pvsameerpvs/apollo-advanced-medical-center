@@ -69,10 +69,18 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-brand-green leading-[1.1] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
-            {slide.highlight} <br />
-            <span className="text-brand-orange">{slide.title}</span> <br />
-            Personalized.
+          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
+            <span className="relative inline-block text-brand-green [paint-order:stroke_fill] [-webkit-text-stroke:12px_white] drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] mb-2">
+              {slide.highlight}
+            </span>
+            <br />
+            <span className="relative inline-block text-brand-orange [paint-order:stroke_fill] [-webkit-text-stroke:12px_white] drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] mb-2">
+              {slide.title}
+            </span>
+            <br />
+            <span className="relative inline-block text-brand-green [paint-order:stroke_fill] [-webkit-text-stroke:12px_white] drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
+              Personalized.
+            </span>
           </h1>
           
           <p className="mt-8 text-lg text-white font-bold max-w-2xl leading-relaxed md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
