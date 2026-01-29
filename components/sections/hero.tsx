@@ -96,28 +96,28 @@ export function Hero() {
             </Button>
           </div>
         </div>
+      </div>
 
-        {/* Social Icons - Bottom Right */}
-        <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 flex gap-4 animate-in fade-in slide-in-from-right-4 duration-1000 delay-500">
-          <a 
-            href={site.instagram.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-brand-green/10 text-brand-green hover:bg-brand-green hover:text-white transition-all shadow-soft group"
-            aria-label="Instagram"
-          >
-            <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
-          </a>
-          <a 
-            href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-brand-green/10 text-brand-green hover:bg-brand-green hover:text-white transition-all shadow-soft group"
-            aria-label="WhatsApp"
-          >
-            <WhatsAppIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-          </a>
-        </div>
+      {/* Social Icons - Fixed to Section Bottom */}
+      <div className="absolute bottom-0  right-4 lg:bottom-8 lg:right-8 flex gap-4 z-20 animate-in fade-in slide-in-from-right-4 duration-1000 delay-500">
+        <a 
+          href={site.instagram.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-brand-green/10 text-brand-green hover:bg-brand-green hover:text-white transition-all shadow-soft group"
+          aria-label="Instagram"
+        >
+          <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+        </a>
+        <a 
+          href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-brand-green/10 text-brand-green hover:bg-brand-green hover:text-white transition-all shadow-soft group"
+          aria-label="WhatsApp"
+        >
+          <WhatsAppIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+        </a>
       </div>
       
       {/* Dynamic Background Accents */}
@@ -126,5 +126,3 @@ export function Hero() {
     </section>
   )
 }
-
-
