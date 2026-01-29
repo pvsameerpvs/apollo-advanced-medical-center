@@ -1,109 +1,122 @@
+'use client'
+
+import * as React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Calendar, CheckCircle2, Phone, Star } from 'lucide-react'
-
+import { Calendar, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { site } from '@/lib/site'
+import { WhatsAppIcon } from '@/components/icons/whatsapp'
+import { cn } from '@/lib/utils'
+
+const slides = [
+  {
+    id: 'medical',
+    title: 'Advanced Care',
+    highlight: 'Excellence',
+    description: 'Discover a new standard of healthcare at Apollo. Our specialists combine cutting-edge technology with artisanal precision.',
+    label: 'Advanced Medical • Dental • Aesthetics'
+  }
+]
+
+const bgImages = [
+  '/images/hero-bg.jpeg',
+  '/images/hero-bg-2.jpeg'
+]
 
 export function Hero() {
+  const slide = slides[0]
+  const [currentBg, setCurrentBg] = React.useState(0)
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % bgImages.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
-    <section className="relative flex min-h-[calc(100vh-6rem)] items-center overflow-hidden bg-gradient-to-br from-white via-white to-brand-orangeSoft/20 py-12 lg:py-0">
-      <div className="container relative z-10">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          {/* Left Content */}
-          <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/10 bg-white px-4 py-1.5 shadow-sm transition-transform hover:scale-105">
-              <span className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-brand-orange">
-                <Star className="h-3 w-3 fill-current" />
-                Rated 4.9/5
-              </span>
-              <span className="text-xs font-medium text-ui-text/60">by 500+ Happy Patients</span>
-            </div>
+    <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-brand-green/5 flex flex-col">
+      {/* Background Images Layer */}
+      <div className="absolute inset-0 z-0">
+        {bgImages.map((img, idx) => (
+          <div
+            key={img}
+            className={cn(
+              "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+              idx === currentBg ? "opacity-100" : "opacity-0"
+            )}
+          >
+            <Image
+              src={img}
+              alt="Hero Background"
+              fill
+              className="object-cover"
+              priority={idx === 0}
+            />
+          </div>
+        ))}
+      </div>
 
-            <h1 className="mt-6 text-5xl font-bold leading-[1.1] tracking-tight text-brand-green md:text-6xl lg:text-7xl">
-              World-Class <br />
-              <span className="text-brand-orange">Dental Care</span> & <br />
-              Aesthetics.
-            </h1>
-            
-            <p className="mt-6 text-lg leading-relaxed text-ui-text/80 md:text-xl">
-              Experience the perfect blend of advanced medical technology and artistic precision. 
-              From routine checkups to smile makeovers, we are committed to your confidence.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button asChild size="lg" className="h-14 px-8 text-base shadow-lg shadow-brand-green/20 transition-all hover:shadow-xl hover:shadow-brand-green/30">
-                <Link href="/appointment" className="inline-flex items-center gap-2">
-                  <Calendar className="h-5 w-5" />
-                  Book Appointment
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="group h-14 border-brand-green/20 px-8 text-base hover:bg-brand-green/5 hover:text-brand-green">
-                <a href={`tel:${site.contact.phone}`} className="inline-flex items-center gap-2">
-                  <Phone className="h-5 w-5 text-brand-orange transition-transform group-hover:rotate-12" />
-                  Call Now
-                </a>
-              </Button>
-            </div>
-
-            <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-4 text-sm font-medium text-ui-text/80 sm:grid-cols-4 delay-200 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-forwards">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-brand-green" />
-                DHA Licensed
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-brand-green" />
-                Latest Tech
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-brand-green" />
-                0% Installments
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-brand-green" />
-                Free Parking
-              </div>
-            </div>
+      <div className="flex-1 container relative z-10 flex flex-col items-center justify-center py-12">
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+          
+          {/* Main Brand Message */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/10 bg-brand-green/5 px-4 py-1.5 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <span className="flex h-2 w-2 rounded-full bg-brand-orange animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-green">
+              {slide.label}
+            </span>
           </div>
 
-          {/* Right Image */}
-          <div className="relative mt-10 lg:mt-0 animate-in fade-in slide-in-from-right-8 duration-1000 ease-out">
-             {/* Decorative Elements */}
-            <div className="absolute -left-12 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-brand-orange/20 blur-3xl" />
-            <div className="absolute -right-12 top-0 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
+          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-brand-green leading-[1.1] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
+            {slide.highlight} <br />
+            <span className="text-brand-orange">{slide.title}</span> <br />
+            Personalized.
+          </h1>
+          
+          <p className="mt-8 text-lg text-white font-bold max-w-2xl leading-relaxed md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+            {slide.description}
+          </p>
 
-            <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-[2.5rem] border border-white/50 bg-white shadow-2xl transition-transform duration-500 hover:scale-[1.02] lg:rounded-[3rem]">
-               {/* 
-                  TODO: The user should add a real image at /images/dental-hero.jpg
-               */}
-              <div className="absolute inset-0 flex items-center justify-center bg-brand-green/5 text-brand-green/20">
-                 <p className="font-bold">Dental Hero Image</p>
-              </div>
-              <Image
-                src="/images/dental-hero.jpg"
-                alt="Happy patient with a beautiful smile"
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              
-              {/* Floating Badge */}
-              <div className="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/40 bg-white/90 p-4 shadow-xl backdrop-blur md:left-auto md:right-8 md:w-64 animate-in fade-in slide-in-from-bottom-4 delay-500 duration-700 fill-mode-forwards">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green/10">
-                    <Star className="h-5 w-5 text-brand-green" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-brand-green">Best in Class</p>
-                    <p className="text-xs text-ui-text/70">Award winning services</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="mt-12 flex flex-col sm:flex-row gap-6 items-center justify-center w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
+            <Button asChild size="lg" className="h-16 px-12 rounded-full bg-brand-green hover:bg-brand-greenDark shadow-xl shadow-brand-green/20 text-base font-semibold group w-full sm:w-auto">
+              <Link href="/appointment" className="inline-flex items-center gap-2">
+                <Calendar className="h-5 w-5" />
+                Free Consultation
+              </Link>
+            </Button>
           </div>
         </div>
+
+        {/* Social Icons - Bottom Right */}
+        <div className="absolute bottom-8 right-8 flex gap-4 animate-in fade-in slide-in-from-right-4 duration-1000 delay-500">
+          <a 
+            href={site.instagram.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-brand-green/10 text-brand-green hover:bg-brand-green hover:text-white transition-all shadow-soft group"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+          </a>
+          <a 
+            href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-brand-green/10 text-brand-green hover:bg-brand-green hover:text-white transition-all shadow-soft group"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+          </a>
+        </div>
       </div>
+      
+      {/* Dynamic Background Accents */}
+      <div className="absolute top-1/4 -left-40 w-96 h-96 bg-brand-green/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] pointer-events-none" />
     </section>
   )
 }
+
+
