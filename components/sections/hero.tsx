@@ -58,18 +58,18 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="flex-1 container relative z-10 flex flex-col items-center justify-center py-12">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+      <div className="flex-1 container relative z-10 flex flex-col items-start justify-center py-12">
+        <div className="max-w-4xl text-left flex flex-col items-start">
           
           {/* Main Brand Message */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/10 bg-brand-green/5 px-4 py-1.5 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/10 bg-brand-green/5 px-4 py-1.5 mb-8 animate-in fade-in slide-in-from-left-4 duration-700">
             <span className="flex h-2 w-2 rounded-full bg-brand-orange animate-pulse" />
             <span className="text-xs font-bold uppercase tracking-wider text-brand-green">
               {slide.label}
             </span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
+          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1] animate-in fade-in slide-in-from-left-6 duration-1000 delay-100 uppercase py-4">
             <span className="relative inline-block text-brand-green [paint-order:stroke_fill] [-webkit-text-stroke:12px_white] drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] mb-2">
               {slide.highlight}
             </span>
@@ -83,11 +83,11 @@ export function Hero() {
             </span>
           </h1>
           
-          <p className="mt-8 text-lg text-white font-bold max-w-2xl leading-relaxed md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="mt-8 text-lg text-white font-bold max-w-2xl leading-relaxed md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-left-8 duration-1000 delay-200">
             {slide.description}
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row gap-6 items-center justify-center w-full animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
+          <div className="mt-12 flex flex-col sm:flex-row gap-6 items-start justify-start w-full animate-in fade-in slide-in-from-left-10 duration-1000 delay-300">
             <Button asChild size="lg" className="h-16 px-12 rounded-full bg-brand-green hover:bg-brand-greenDark shadow-xl shadow-brand-green/20 text-base font-semibold group w-full sm:w-auto">
               <Link href="/appointment" className="inline-flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
@@ -98,7 +98,7 @@ export function Hero() {
         </div>
 
         {/* Social Icons - Bottom Right */}
-        <div className="absolute bottom-8 right-8 flex gap-4 animate-in fade-in slide-in-from-right-4 duration-1000 delay-500">
+        <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 flex gap-4 animate-in fade-in slide-in-from-right-4 duration-1000 delay-500">
           <a 
             href={site.instagram.url} 
             target="_blank" 
