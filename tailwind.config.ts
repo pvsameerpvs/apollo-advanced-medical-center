@@ -19,6 +19,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         heading: ['var(--font-heading)', 'sans-serif'],
+        oswald: ['var(--font-oswald)', 'sans-serif'],
       },
       colors: {
         brand: {

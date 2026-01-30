@@ -20,8 +20,17 @@ const slides = [
 ]
 
 const bgImages = [
-  '/images/hero-bg.jpeg',
-  '/images/hero-bg-2.jpeg'
+  '/images/hero-bg.png',
+  '/images/hero-bg-2.png',
+  '/images/hero-bg-3.png',
+  '/images/hero-bg-4.png',
+]
+
+const bgImagesMobile = [
+  '/images/mobile-hero-bg1.png',
+  '/images/mobile-hero-bg2.png',
+  '/images/mobile-hero-bg3.png',
+  '/images/mobile-hero-bg4.jpeg',
 ]
 
 export function Hero() {
@@ -39,23 +48,47 @@ export function Hero() {
     <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-brand-green/5 flex flex-col">
       {/* Background Images Layer */}
       <div className="absolute inset-0 z-0">
-        {bgImages.map((img, idx) => (
-          <div
-            key={img}
-            className={cn(
-              "absolute inset-0 transition-opacity duration-1000 ease-in-out",
-              idx === currentBg ? "opacity-100" : "opacity-0"
-            )}
-          >
-            <Image
-              src={img}
-              alt="Hero Background"
-              fill
-              className="object-cover"
-              priority={idx === 0}
-            />
-          </div>
-        ))}
+        {/* Desktop Images */}
+        <div className="hidden md:block absolute inset-0">
+          {bgImages.map((img, idx) => (
+            <div
+              key={`desktop-${img}`}
+              className={cn(
+                "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+                idx === currentBg ? "opacity-100" : "opacity-0"
+              )}
+            >
+              <Image
+                src={img}
+                alt="Hero Background Desktop"
+                fill
+                className="object-cover"
+                priority={idx === 0}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Images */}
+        <div className="block md:hidden absolute inset-0">
+          {bgImagesMobile.map((img, idx) => (
+            <div
+              key={`mobile-${img}`}
+              className={cn(
+                "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+                idx === currentBg ? "opacity-100" : "opacity-0"
+              )}
+            >
+              <Image
+                src={img}
+                alt="Hero Background Mobile"
+                fill
+                className="object-cover"
+                priority={idx === 0}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="flex-1 container relative z-10 flex flex-col items-start justify-center py-12">
@@ -69,21 +102,21 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1] animate-in fade-in slide-in-from-left-6 duration-1000 delay-100 uppercase py-4">
-            <span className="relative inline-block text-brand-green [paint-order:stroke_fill] [-webkit-text-stroke:12px_white] drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] mb-2">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1] animate-in fade-in slide-in-from-left-6 duration-1000 delay-100 uppercase font-sans">
+            <span className="relative inline-block text-brand-green mb-2">
               {slide.highlight}
             </span>
             <br />
-            <span className="relative inline-block text-brand-orange [paint-order:stroke_fill] [-webkit-text-stroke:12px_white] drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] mb-2">
+            <span className="relative inline-block text-brand-orange mb-2">
               {slide.title}
             </span>
             <br />
-            <span className="relative inline-block text-brand-green [paint-order:stroke_fill] [-webkit-text-stroke:12px_white] drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
+            <span className="relative inline-block text-brand-green">
               Personalized.
             </span>
           </h1>
           
-          <p className="mt-8 text-lg text-white font-bold max-w-2xl leading-relaxed md:text-xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] animate-in fade-in slide-in-from-left-8 duration-1000 delay-200">
+          <p className="mt-8 text-lg text-black font-bold max-w-2xl leading-relaxed md:text-xl animate-in fade-in slide-in-from-left-8 duration-1000 delay-200">
             {slide.description}
           </p>
 

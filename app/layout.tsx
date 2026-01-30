@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Inter, Outfit } from 'next/font/google'
+import { Inter, Outfit, Oswald } from 'next/font/google'
 
 import './globals.css'
 import { site } from '@/lib/site'
@@ -10,12 +10,19 @@ import { cn } from '@/lib/utils'
 
 const fontSans = Inter({
   subsets: ['latin'],
+  weight: ['400', '700', '900'],
   variable: '--font-sans',
 })
 
 const fontHeading = Outfit({
   subsets: ['latin'],
   variable: '--font-heading',
+})
+
+const fontOswald = Oswald({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-oswald',
 })
 
 export const metadata: Metadata = {
@@ -69,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-white font-sans antialiased', fontSans.variable, fontHeading.variable)}>
+      <body className={cn('min-h-screen bg-white font-sans antialiased', fontSans.variable, fontHeading.variable, fontOswald.variable)}>
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
