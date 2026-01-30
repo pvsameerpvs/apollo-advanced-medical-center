@@ -55,6 +55,17 @@ export const doctors: DoctorProfile[] = [
     bio: 'Ellie is known for meticulous treatment planning, comfort-focused sessions, and aftercare guidance that supports safe, consistent results.',
     image: '/images/doctors/dr-ellie-lolita-cruz.png',
   },
+  {
+    slug: 'dr-rishin-basheer',
+    name: 'Dr. Rishin Basheer',
+    role: 'Specialist Orthodontist',
+    qualifications: 'MDS (Orthodontics), BDS',
+    dha: 'DHA Licensed Specialist Orthodontist',
+    expertise: ['Metal & Ceramic Braces', 'Clear Aligners (Invisalign)', 'Bite Correction', 'Smile Design'],
+    services: ['Orthodontic Consultation', 'Braces Treatment', 'Clear Aligners', 'Retainers'],
+    bio: 'Dr. Rishin Basheer is a dedicated Specialist Orthodontist focused on delivering precision-based orthodontic care to achieve perfectly aligned smiles for patients of all ages.',
+    image: '/images/doctors/dr-rishin-Basheer.png',
+  },
 ]
 
 export function getDoctorBySlug(slug: string) {

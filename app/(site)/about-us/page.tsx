@@ -110,6 +110,20 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team Image Section */}
+      <section className="py-12 md:py-16">
+        <div className="container">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[2rem] shadow-2xl md:aspect-[21/9]">
+            <Image
+              src="/images/about-bg.jpeg"
+              alt="Apollo Advanced Medical Center Team"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Core Values */}
       <section className="bg-ui-bg py-20">
         <div className="container">
