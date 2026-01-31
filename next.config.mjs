@@ -1,19 +1,20 @@
 import createMDX from '@next/mdx'
-
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-})
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+  output: "export",
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'cdn.pixabay.com' },
-      { protocol: 'https', hostname: 'instagram.f*' }
-    ],
+    unoptimized: true,
   },
-}
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+};
 
-export default withMDX(nextConfig)
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+  },
+})
+
+export default withMDX(nextConfig);

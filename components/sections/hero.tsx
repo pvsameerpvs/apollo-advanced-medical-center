@@ -30,7 +30,7 @@ const bgImagesMobile = [
   '/images/mobile-hero-bg1.png',
   '/images/mobile-hero-bg2.png',
   '/images/mobile-hero-bg3.png',
-  '/images/mobile-hero-bg4.jpeg',
+  '/images/mobile-hero-bg4.png',
 ]
 
 export function Hero() {

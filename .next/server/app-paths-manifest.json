@@ -1,6 +1,20 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/(site)/doctors/[slug]/page": "app/(site)/doctors/[slug]/page.js",
+  "/api/appointment/route": "app/api/appointment/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/(site)/appointment/page": "app/(site)/appointment/page.js",
+  "/(site)/blog/page": "app/(site)/blog/page.js",
+  "/(site)/about-us/page": "app/(site)/about-us/page.js",
+  "/(site)/blog/[slug]/page": "app/(site)/blog/[slug]/page.js",
   "/(site)/page": "app/(site)/page.js",
-  "/(site)/about-us/page": "app/(site)/about-us/page.js"
+  "/(site)/services/aesthetic-beauty-services/page": "app/(site)/services/aesthetic-beauty-services/page.js",
+  "/(site)/services/dental-services/page": "app/(site)/services/dental-services/page.js",
+  "/(site)/contact-us/page": "app/(site)/contact-us/page.js",
+  "/(site)/services/facial-skin-care/page": "app/(site)/services/facial-skin-care/page.js",
+  "/(site)/doctors/page": "app/(site)/doctors/page.js",
+  "/(site)/doctors/[slug]/page": "app/(site)/doctors/[slug]/page.js",
+  "/(site)/services/laser-hair-removal/page": "app/(site)/services/laser-hair-removal/page.js",
+  "/(site)/services/slimming-body-contouring/page": "app/(site)/services/slimming-body-contouring/page.js",
+  "/(site)/services/page": "app/(site)/services/page.js"
 }
