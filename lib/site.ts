@@ -12,9 +12,9 @@ export const site = {
     postalCode: '',
   },
   contact: {
-    phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '0428644876',
+    phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '04286487',
     whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '+971 52 892 0301',
-    email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || ' apolloadvancedmedicalcenter@gmail.com',
+    email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || 'apolloadvancedmedicalcenter@gmail.com',
   },
   instagram: {
     handle: '@apollo_medical_center',

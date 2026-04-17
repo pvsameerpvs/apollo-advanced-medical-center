@@ -90,7 +90,7 @@ export default function ContactUsPage() {
                            <Mail className="h-6 w-6" />
                         </div>
                         <h4 className="mt-4 font-bold text-brand-green">Email Us</h4>
-                        <p className="mt-1 text-sm text-ui-text/60">info@apollo-amc.com</p>
+                        <p className="mt-1 text-sm text-ui-text/60">{site.contact.email}</p>
                      </div>
                   </div>
                </div>

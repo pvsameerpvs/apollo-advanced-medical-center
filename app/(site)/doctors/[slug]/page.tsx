@@ -6,6 +6,7 @@ import { BadgeCheck, CheckCircle2, Star, Calendar, ArrowLeft } from 'lucide-reac
 
 import { getDoctorBySlug, doctors } from '@/lib/doctors'
 import { Button } from '@/components/ui/button'
+import { site } from '@/lib/site'
 
 export function generateStaticParams() {
   return doctors.map((d) => ({ slug: d.slug }))
@@ -148,8 +149,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                         <Button size="lg" className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white border-none shadow-lg shadow-black/10" asChild>
                            <Link href="/appointment">Confirm Booking</Link>
                         </Button>
-                        <a href={`tel:+971504953535`} className="flex items-center justify-center py-2 text-sm font-bold text-white/90 hover:text-white transition-colors">
-                           Call for Instant Inquiry
+                        <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`} className="flex items-center justify-center py-2 text-sm font-bold text-white/90 hover:text-white transition-colors">
+                           Call {site.contact.phone}
                         </a>
                      </div>
                   </div>
