@@ -7,7 +7,6 @@ import {
   CalendarClock, 
   CheckCircle2, 
   Loader2, 
-  MessageCircle, 
   Phone, 
   User, 
   Mail, 
@@ -16,10 +15,10 @@ import {
   MessageSquare,
   ShieldCheck,
   Sparkles,
-  Clock,
-  ArrowRight
+  Clock
 } from 'lucide-react'
 
+import { buildAppointmentWhatsAppUrl, formatStartOfDayLocalValue } from '@/lib/appointment'
 import { appointmentSchema, type AppointmentPayload } from '@/lib/appointment-schema'
 import { doctors } from '@/lib/doctors'
 import { serviceCategories } from '@/lib/services'
@@ -33,10 +32,25 @@ import { SelectNative } from '@/components/ui/select-native'
 import { Textarea } from '@/components/ui/textarea'
 
 const allServices = Array.from(new Set(serviceCategories.flatMap((c) => c.items)))
+const appointmentDefaultValues: AppointmentPayload = {
+  fullName: '',
+  phone: '',
+  email: '',
+  service: '',
+  doctor: 'Any Available Specialist',
+  preferredDateTime: '',
+  message: '',
+}
 
 export function AppointmentForm() {
   const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = React.useState<string>('')
+  const [whatsappUrl, setWhatsappUrl] = React.useState<string>('')
+  const [minimumDateTime, setMinimumDateTime] = React.useState<string>('')
+
+  React.useEffect(() => {
+    setMinimumDateTime(formatStartOfDayLocalValue(new Date()))
+  }, [])
 
   const {
     register,
@@ -45,20 +59,18 @@ export function AppointmentForm() {
     formState: { errors },
   } = useForm<AppointmentPayload>({
     resolver: zodResolver(appointmentSchema),
-    defaultValues: {
-      fullName: '',
-      phone: '',
-      email: '',
-      service: '',
-      doctor: '',
-      preferredDateTime: '',
-      message: '',
-    },
+    defaultValues: appointmentDefaultValues,
   })
 
   async function onSubmit(values: AppointmentPayload) {
     setStatus('loading')
     setMessage('')
+    const nextWhatsappUrl = buildAppointmentWhatsAppUrl(values, site.contact.whatsapp)
+    setWhatsappUrl(nextWhatsappUrl)
+
+    if (typeof window !== 'undefined') {
+      window.open(nextWhatsappUrl, '_blank', 'noopener,noreferrer')
+    }
 
     try {
       const res = await fetch('/api/appointment', {
@@ -74,11 +86,17 @@ export function AppointmentForm() {
       }
 
       setStatus('success')
-      setMessage('Thanks! We received your request and will confirm your appointment shortly by phone/WhatsApp.')
-      reset()
+      setMessage(
+        'WhatsApp should now be open with your appointment details. Send the message there and our team will confirm your appointment shortly.'
+      )
+      reset(appointmentDefaultValues)
     } catch (err) {
-      setStatus('error')
-      setMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+      console.error('[AppointmentForm]', err)
+      setStatus('success')
+      setMessage(
+        'WhatsApp should now be open with your appointment details. If it did not open automatically, use the button below to send your request manually.'
+      )
+      reset(appointmentDefaultValues)
     }
   }
 
@@ -91,7 +109,10 @@ export function AppointmentForm() {
         <div className="rounded-[2.5rem] bg-white p-8 shadow-2xl shadow-brand-green/5 border border-ui-border/50 md:p-12">
           <div className="mb-10 text-center md:text-left">
             <h2 className="text-3xl font-bold text-brand-green">Request a Consultation</h2>
-            <p className="mt-3 text-ui-text/60">Fill out the form below and our team will get back to you within 2 hour.</p>
+            <p className="mt-3 text-ui-text/60">
+              Fill out the form below and WhatsApp will open with your appointment details ready
+              to send.
+            </p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="grid gap-8">
@@ -166,9 +187,8 @@ export function AppointmentForm() {
                       id="doctor" 
                       className="h-14 rounded-xl text-lg focus:ring-brand-green transition-all appearance-none bg-white"
                       {...register('doctor')} 
-                      defaultValue=""
                     >
-                      <option value="" disabled>Any Available Specialist</option>
+                      <option value="Any Available Specialist">Any Available Specialist</option>
                       {doctors.map((d) => (
                         <option key={d.slug} value={d.name}>{d.name}</option>
                       ))}
@@ -184,10 +204,14 @@ export function AppointmentForm() {
                   </Label>
                   <Input 
                     id="preferredDateTime" 
-                    placeholder="E.g. Monday morning or Jan 25th at 4pm" 
+                    type="datetime-local"
+                    min={minimumDateTime || undefined}
                     className="h-14 rounded-xl text-lg focus:ring-brand-green transition-all"
                     {...register('preferredDateTime')} 
                   />
+                  <p className="text-sm text-ui-text/50">
+                    Choose today or any future date and time. Past dates are not allowed.
+                  </p>
                   {errors.preferredDateTime ? (
                     <p className="text-sm font-medium text-red-500">{errors.preferredDateTime.message}</p>
                   ) : null}
@@ -213,11 +237,12 @@ export function AppointmentForm() {
                 {status === 'loading' ? (
                   <span className="flex items-center gap-3">
                     <Loader2 className="h-6 w-6 animate-spin" />
-                    Sending Request...
+                    Preparing WhatsApp...
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
-                    Submit Request <ArrowRight className="h-5 w-5" />
+                    <WhatsAppIcon className="h-5 w-5" />
+                    Continue on WhatsApp
                   </span>
                 )}
               </Button>
@@ -227,7 +252,7 @@ export function AppointmentForm() {
                     <ShieldCheck className="h-4 w-4 text-brand-orange" /> 100% Encrypted & Secure
                  </div>
                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-brand-orange" /> Confirmation within 2 Hours
+                    <Clock className="h-4 w-4 text-brand-orange" /> Opens WhatsApp instantly after submit
                  </div>
               </div>
             </div>
@@ -237,8 +262,21 @@ export function AppointmentForm() {
                 <div className="flex gap-4">
                   <CheckCircle2 className="h-8 w-8 text-green-600 shrink-0" />
                   <div>
-                    <h3 className="text-lg font-bold text-green-800">Request Sent Successfully</h3>
+                    <h3 className="text-lg font-bold text-green-800">Appointment Ready on WhatsApp</h3>
                     <p className="mt-1 text-green-700 leading-relaxed">{message}</p>
+                    {whatsappUrl ? (
+                      <Button
+                        asChild
+                        size="sm"
+                        variant="green"
+                        className="mt-4 rounded-xl"
+                      >
+                        <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2">
+                          <WhatsAppIcon className="h-5 w-5" />
+                          Open WhatsApp Again
+                        </a>
+                      </Button>
+                    ) : null}
                   </div>
                 </div>
               </div>

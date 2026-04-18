@@ -78,19 +78,26 @@ export default function ContactUsPage() {
 
                   {/* Address & Email */}
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                     <div className="flex flex-col rounded-3xl bg-white p-6 shadow-soft border border-ui-border">
+                     <div className="min-w-0 rounded-3xl border border-ui-border bg-white p-6 shadow-soft">
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ui-bg text-brand-green">
                            <MapPin className="h-6 w-6" />
                         </div>
                         <h4 className="mt-4 font-bold text-brand-green">Our Location</h4>
-                        <p className="mt-1 text-sm text-ui-text/60 line-clamp-2">Deira, Dubai, UAE</p>
+                        <p className="mt-1 text-sm leading-relaxed text-ui-text/60">
+                          {site.address.street}, {site.address.city}, {site.address.country}
+                        </p>
                      </div>
-                     <div className="flex flex-col rounded-3xl bg-white p-6 shadow-soft border border-ui-border">
+                     <div className="min-w-0 rounded-3xl border border-ui-border bg-white p-6 shadow-soft">
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ui-bg text-brand-green">
                            <Mail className="h-6 w-6" />
                         </div>
                         <h4 className="mt-4 font-bold text-brand-green">Email Us</h4>
-                        <p className="mt-1 text-sm text-ui-text/60">{site.contact.email}</p>
+                        <a
+                          href={`mailto:${site.contact.email}`}
+                          className="mt-1 block break-all text-sm leading-relaxed text-ui-text/60 transition-colors hover:text-brand-green"
+                        >
+                          {site.contact.email}
+                        </a>
                      </div>
                   </div>
                </div>

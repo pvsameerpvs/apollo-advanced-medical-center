@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+import { formatPreferredDateTime } from '@/lib/appointment'
 import { appointmentSchema } from '@/lib/appointment-schema'
 import { site } from '@/lib/site'
 
@@ -11,6 +12,7 @@ export async function POST(req: Request) {
 
     const to = process.env.APPOINTMENT_TO_EMAIL || site.contact.email
     const from = process.env.APPOINTMENT_FROM_EMAIL || site.contact.email
+    const formattedPreferredDateTime = formatPreferredDateTime(data.preferredDateTime)
 
     const smtpHost = process.env.SMTP_HOST
     const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 587
@@ -43,7 +45,7 @@ export async function POST(req: Request) {
       `Email: ${data.email}`,
       `Service: ${data.service}`,
       `Doctor: ${data.doctor}`,
-      `Preferred Date & Time: ${data.preferredDateTime}`,
+      `Preferred Date & Time: ${formattedPreferredDateTime}`,
       `Message: ${data.message || '-'}`,
       '',
       `Clinic: ${site.name}`,
@@ -59,7 +61,7 @@ export async function POST(req: Request) {
           ${row('Email', data.email)}
           ${row('Service', data.service)}
           ${row('Doctor', data.doctor)}
-          ${row('Preferred Date & Time', data.preferredDateTime)}
+          ${row('Preferred Date & Time', formattedPreferredDateTime)}
           ${row('Message', data.message || '-')}
         </table>
         <p style="margin:16px 0 0;">Clinic: <strong>${site.name}</strong> — Deira, Dubai</p>

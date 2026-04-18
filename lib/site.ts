@@ -12,13 +12,19 @@ export const site = {
     postalCode: '',
   },
   contact: {
-    phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '04286487',
+    phone: process.env.NEXT_PUBLIC_CLINIC_PHONE || '042864876',
     whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '+971 52 892 0301',
     email: process.env.NEXT_PUBLIC_CLINIC_EMAIL || 'apolloadvancedmedicalcenter@gmail.com',
   },
   instagram: {
     handle: '@apollo_medical_center',
     url: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/apollo_medical_center?igsh=MWdxcmRlYTUwM2duag==',
+  },
+  facebook: {
+    url: process.env.NEXT_PUBLIC_FACEBOOK_URL || 'https://www.facebook.com/profile.php?id=61582317335218',
+  },
+  linkedin: {
+    url: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/company/apollo-advanced-medical-center/',
   },
   openingHours: [
     { day: 'Mon-Sat', hours: '09:00 AM - 09:00 PM' },

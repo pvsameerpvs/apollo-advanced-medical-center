@@ -49,13 +49,17 @@ export function SiteFooter() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href={site.facebook.url}
+                target="_blank"
+                rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href={site.linkedin.url}
+                target="_blank"
+                rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
               >
                 <Linkedin className="h-5 w-5" />
