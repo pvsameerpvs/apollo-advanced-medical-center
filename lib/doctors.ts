@@ -66,6 +66,28 @@ export const doctors: DoctorProfile[] = [
     bio: 'Dr. Rishin Basheer is a dedicated Specialist Orthodontist focused on delivering precision-based orthodontic care to achieve perfectly aligned smiles for patients of all ages.',
     image: '/images/doctors/dr-rishin-Basheer.png',
   },
+  {
+    slug: 'dr-hiba-zaffar',
+    name: 'Dr. Hiba Zaffar',
+    role: 'GP Dentist',
+    qualifications: 'Comprehensive Dental Care',
+    dha: 'DHA Licensed General Practitioner',
+    expertise: [
+      'Restorative Dentistry',
+      'Aesthetic Smile Design',
+      'Endodontics',
+      'Prosthodontics',
+    ],
+    services: [
+      'Aesthetic Veneers & Bonding',
+      'Root Canal Therapy',
+      'Crowns & Bridges',
+      'Composite Fillings & Restorations',
+      'Full Oral Health Screenings',
+    ],
+    bio: 'Dr. Hiba Zaffar is an experienced GP Dentist dedicated to providing high-quality restorative and aesthetic dental solutions. With a focus on patient comfort and clinical precision, she specializes in transforming smiles through advanced restorative techniques and comprehensive oral health management.',
+    image: '/images/doctors/dr-hiba-zaffar.png',
+  },
 ]
 
 export function getDoctorBySlug(slug: string) {

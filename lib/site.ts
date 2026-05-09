@@ -27,7 +27,7 @@ export const site = {
     url: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/company/apollo-advanced-medical-center/',
   },
   openingHours: [
-    { day: 'Mon-Sat', hours: '09:00 AM - 09:00 PM' },
+    { day: 'Mon-Sat', hours: '09:00 AM - 11:00 PM' },
     { day: 'Sun', hours: 'Closed' },
   ],
 } as const
