@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
   title: 'Our Services | Apollo Advanced Medical Center',
   description:
-    'Discover our range of premium dental, aesthetic, and skincare services in Deira, Dubai. Personalized treatments with DHA-licensed expertise.',
+    'Discover our range of premium dental, aesthetic, and skincare services in Al Rigga, Union Dubai. Personalized treatments with DHA-licensed expertise.',
   alternates: { canonical: '/services' },
 }
 
@@ -23,7 +23,7 @@ export default function ServicesPage() {
  <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
           src="/images/service-hero.jpg"
-          alt="Modern Clinic Interior"
+          alt="Modern treatment room at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-60 mix-blend-overlay"
           priority
@@ -57,7 +57,7 @@ export default function ServicesPage() {
                 <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <Image
                     src={cat.image}
-                    alt={cat.title}
+                    alt={cat.imageAlt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />

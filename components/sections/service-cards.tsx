@@ -30,7 +30,7 @@ export function ServiceCards() {
               <div className="relative h-48 w-full overflow-hidden bg-brand-green/5">
                 <Image
                   src={cat.image}
-                  alt={cat.title}
+                  alt={cat.imageAlt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

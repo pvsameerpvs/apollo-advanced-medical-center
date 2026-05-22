@@ -5,7 +5,7 @@ import { CommentAnimation } from '@/components/ui/comment-animation'
 
 const COMMENTS_1 = [
   { user: 'Sarah M.', text: 'The hydrafacial results are amazing! 😍' },
-  { user: 'Ahmed K.', text: 'Best dental clinic in Dubai. Very professional.' },
+  { user: 'Ahmed K.', text: 'Best dental clinic in Al Rigga, Union Dubai. Very professional.' },
   { user: 'Fatima A.', text: 'Dr. Shazia is so gentle and kind. ❤️' },
 ]
 

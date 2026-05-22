@@ -9,7 +9,7 @@ import { CtaBand } from '@/components/sections/cta-band'
 export const metadata: Metadata = {
   title: 'Our Medical Team | Apollo Advanced Medical Center',
   description:
-    'Meet our team of DHA-licensed doctors and therapists at Apollo Advanced Medical Center in Deira, Dubai. Excellence in dental, aesthetic, and skin care.',
+    'Meet our team of DHA-licensed doctors and therapists at Apollo Advanced Medical Center in Al Rigga, Union Dubai. Excellence in dental, aesthetic, and skin care.',
   alternates: { canonical: '/doctors' },
 }
 
@@ -20,7 +20,7 @@ export default function DoctorsPage() {
       <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
           src="/images/doctors-hero.jpg"
-          alt="Our medical team"
+          alt="DHA licensed medical team at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-60 mix-blend-overlay"
           priority
@@ -78,7 +78,7 @@ export default function DoctorsPage() {
           <div className="mb-12 text-center md:mb-16">
             <h2 className="text-3xl font-bold text-brand-green md:text-5xl">Our Medical Experts</h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-ui-text/80">
-              Passionate professionals dedicated to your health and confidence in Deira, Dubai.
+              Passionate professionals dedicated to your health and confidence in Al Rigga, Union Dubai.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ export default function DoctorsPage() {
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-green/5">
                   <Image
                     src={d.image}
-                    alt={d.name}
+                    alt={d.imageAlt}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

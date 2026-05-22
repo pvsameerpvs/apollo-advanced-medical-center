@@ -28,7 +28,7 @@ const fontOswald = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: 'Apollo Advanced Medical Center | Medical, Dental & Aesthetic Clinic in Deira, Dubai',
+    default: 'Apollo Advanced Medical Center | Medical, Dental & Aesthetic Clinic in Al Rigga, Union Dubai',
     template: '%s | Apollo Advanced Medical Center',
   },
   description: site.description,
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressCountry: site.address.country,
       streetAddress: site.address.street,
     },
-    areaServed: 'Deira, Dubai, UAE',
+    areaServed: 'Al Rigga, Union Dubai, UAE',
     sameAs: [site.instagram.url],
   }
 

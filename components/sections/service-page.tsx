@@ -12,8 +12,9 @@ export function ServicePageTemplate(props: {
   who: string[]
   included?: string[]
   image: string
+  imageAlt?: string
 }) {
-  const { title, intro, benefits, process, who, included, image } = props
+  const { title, intro, benefits, process, who, included, image, imageAlt } = props
 
   return (
     <>
@@ -21,7 +22,7 @@ export function ServicePageTemplate(props: {
       <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-brand-green py-20">
         <Image
           src={image}
-          alt={title}
+          alt={imageAlt ?? `${title} service at Apollo Advanced Medical Center in Al Rigga, Union Dubai`}
           fill
           className="object-cover opacity-40 mix-blend-overlay"
           priority

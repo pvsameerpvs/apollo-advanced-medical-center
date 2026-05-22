@@ -51,7 +51,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
           src={post.meta.image}
-          alt={post.meta.title}
+          alt={post.meta.imageAlt}
           fill
           className="object-cover opacity-60 mix-blend-overlay"
           priority
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             <div className="relative mb-3 aspect-video overflow-hidden rounded-2xl">
                                <Image 
                                  src={p.image} 
-                                 alt={p.title} 
+                                 alt={p.imageAlt}
                                  fill 
                                  className="object-cover transition-transform group-hover:scale-105" 
                                />
@@ -165,4 +165,3 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     </>
   )
 }
-

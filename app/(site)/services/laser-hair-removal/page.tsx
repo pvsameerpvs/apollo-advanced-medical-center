@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { ServicePageTemplate } from '@/components/sections/service-page'
 
 export const metadata: Metadata = {
-  title: 'Laser Hair Removal in Deira, Dubai',
+  title: 'Laser Hair Removal in Al Rigga, Union Dubai',
   description:
-    'Safe laser hair removal for face and body in Deira, Dubai. Customized settings for your skin type with DHA-licensed therapists.',
+    'Safe laser hair removal for face and body in Al Rigga, Union Dubai. Customized settings for your skin type with DHA-licensed therapists.',
   alternates: { canonical: '/services/laser-hair-removal' },
 }
 
@@ -15,6 +15,7 @@ export default function LaserHairRemovalPage() {
       title="Laser Hair Removal"
       intro="Our laser hair removal treatments are designed for comfort, safety, and consistent hair reduction. We tailor settings to your skin type and treatment area, and provide aftercare guidance to protect your results."
       image="/images/services/laser.png"
+      imageAlt="Laser hair removal service for face and body at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
       benefits={[
         'Long-term hair reduction and smoother skin',
         'Fast sessions with targeted areas available',

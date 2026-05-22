@@ -8,9 +8,15 @@ export type BlogPostMeta = {
   date: string
   category: string
   image: string
+  imageAlt: string
 }
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
+
+function buildBlogImageAlt(title: string, category: string) {
+  const topic = category ? `${category.toLowerCase()} guidance` : 'health and wellness guidance'
+  return `${title} article image for ${topic} from Apollo Advanced Medical Center in Al Rigga, Union Dubai`
+}
 
 function parseFrontmatter(raw: string) {
   const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n/)
@@ -36,13 +42,16 @@ export function getAllPosts(): BlogPostMeta[] {
       const slug = file.replace(/\.mdx$/, '')
       const raw = fs.readFileSync(path.join(BLOG_DIR, file), 'utf8')
       const { data } = parseFrontmatter(raw)
+      const title = data.title || slug
+      const category = data.category || 'Blog'
       return {
         slug,
-        title: data.title || slug,
+        title,
         description: data.description || '',
         date: data.date || '',
-        category: data.category || 'Blog',
+        category,
         image: data.image || '/images/blog/placeholder.jpg',
+        imageAlt: data.imageAlt || buildBlogImageAlt(title, category),
       }
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -53,13 +62,17 @@ export async function getPost(slug: string) {
   if (!fs.existsSync(file)) return null
   const raw = fs.readFileSync(file, 'utf8')
   const { data, content } = parseFrontmatter(raw)
+  const title = data.title || slug
+  const category = data.category || 'Blog'
   return {
     meta: {
       slug,
-      title: data.title || slug,
+      title,
       description: data.description || '',
       date: data.date || '',
-      category: data.category || 'Blog',
+      category,
+      image: data.image || '/images/blog/placeholder.jpg',
+      imageAlt: data.imageAlt || buildBlogImageAlt(title, category),
     } as BlogPostMeta,
     content,
   }

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 export const metadata: Metadata = {
   title: 'About Us | Apollo Advanced Medical Center',
   description:
-    'Learn about Apollo Advanced Medical Center in Deira Dubai. A premium clinic combining DHA-licensed expertise, advanced technology, and patient-centered care.',
+    'Learn about Apollo Advanced Medical Center in Al Rigga, Union Dubai. A premium clinic combining DHA-licensed expertise, advanced technology, and patient-centered care.',
   alternates: { canonical: '/about-us' },
 }
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
       <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
           src="/images/about-hero.png"
-          alt="Modern Clinic Interior"
+          alt="Apollo Advanced Medical Center clinic interior in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-60 mix-blend-overlay"
           priority
@@ -35,7 +35,7 @@ export default function AboutPage() {
             Redefining Healthcare <br className="hidden md:block" /> with Compassion.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90 md:text-xl">
-            Steps away from the heart of Deira, we bring together world-class medical expertise and a calm, premium environment designed for your well-being.
+            Steps away from Al Rigga, Union Dubai, we bring together world-class medical expertise and a calm, premium environment designed for your well-being.
           </p>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
                 <Image
                   src="/images/dental-about.jpg"
-                  alt="Doctor treating patient"
+                  alt="Dentist providing patient care at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
@@ -116,7 +116,7 @@ export default function AboutPage() {
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[2rem] shadow-2xl md:aspect-[21/9]">
             <Image
               src="/images/about-bg.jpeg"
-              alt="Apollo Advanced Medical Center Team"
+              alt="Apollo Advanced Medical Center clinic team in Al Rigga, Union Dubai"
               fill
               className="object-cover"
             />

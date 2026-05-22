@@ -8,6 +8,7 @@ export type DoctorProfile = {
   services: string[]
   bio: string
   image: string
+  imageAlt: string
 }
 
 export const doctors: DoctorProfile[] = [
@@ -21,6 +22,7 @@ export const doctors: DoctorProfile[] = [
     services: ['Scaling & Polishing', 'Teeth Whitening', 'Dental Fillings', 'Tooth Extraction'],
     bio: 'Dr. Shaziaanjum focuses on gentle, patient-first dental care with clear treatment explanations and a strong emphasis on prevention and long-term oral health.',
     image: '/images/doctors/dr-shaziaanjum.png',
+    imageAlt: 'Portrait of Dr. Shaziaanjum, General Dentist at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
     slug: 'dr-farida',
@@ -32,6 +34,7 @@ export const doctors: DoctorProfile[] = [
     services: ['Root Canal Treatment', 'Crowns & Veneers', 'Dental Dentures', 'Cosmetic Dentistry'],
     bio: 'Dr. Farida provides precise, evidence-based dental treatment with a focus on restoring function, aesthetics, and patient confidence.',
     image: '/images/doctors/dr-farida.png',
+    imageAlt: 'Portrait of Dr. Farida, Dental Surgeon at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
     slug: 'hind-belharar',
@@ -43,6 +46,7 @@ export const doctors: DoctorProfile[] = [
     services: ['Facial Treatments', 'Hydrafacial', 'Facial & Skin Care'],
     bio: 'Hind customizes every facial to your skin goals, using safe protocols and aftercare routines that help you maintain results between sessions.',
     image: '/images/doctors/dr-hind-belharar.png',
+    imageAlt: 'Portrait of Hind Belharar, Skin Care Therapist at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
     slug: 'ellie-lolita-cruz',
@@ -54,6 +58,7 @@ export const doctors: DoctorProfile[] = [
     services: ['Laser Hair Removal', 'BB Glow', 'Lip Blushing', 'Micro Shading', 'Slimming Treatment'],
     bio: 'Ellie is known for meticulous treatment planning, comfort-focused sessions, and aftercare guidance that supports safe, consistent results.',
     image: '/images/doctors/dr-ellie-lolita-cruz.png',
+    imageAlt: 'Portrait of Ellie Lolita Cruz, Aesthetic and Laser Therapist at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
     slug: 'dr-rishin-basheer',
@@ -65,6 +70,7 @@ export const doctors: DoctorProfile[] = [
     services: ['Orthodontic Consultation', 'Braces Treatment', 'Clear Aligners', 'Retainers'],
     bio: 'Dr. Rishin Basheer is a dedicated Specialist Orthodontist focused on delivering precision-based orthodontic care to achieve perfectly aligned smiles for patients of all ages.',
     image: '/images/doctors/dr-rishin-Basheer.png',
+    imageAlt: 'Portrait of Dr. Rishin Basheer, Specialist Orthodontist at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
     slug: 'dr-hiba-zaffar',
@@ -87,6 +93,7 @@ export const doctors: DoctorProfile[] = [
     ],
     bio: 'Dr. Hiba Zaffar is an experienced GP Dentist dedicated to providing high-quality restorative and aesthetic dental solutions. With a focus on patient comfort and clinical precision, she specializes in transforming smiles through advanced restorative techniques and comprehensive oral health management.',
     image: '/images/doctors/dr-hiba-zaffar.png',
+    imageAlt: 'Portrait of Dr. Hiba Zaffar, GP Dentist at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
 ]
 

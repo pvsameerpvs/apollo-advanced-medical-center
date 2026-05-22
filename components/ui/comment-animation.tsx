@@ -10,7 +10,7 @@ export type Comment = {
 
 const DEFAULT_COMMENTS: Comment[] = [
   { user: 'Sarah M.', text: 'The hydrafacial results are amazing! 😍' },
-  { user: 'Ahmed K.', text: 'Best dental clinic in Dubai. Very professional.' },
+  { user: 'Ahmed K.', text: 'Best dental clinic in Al Rigga, Union Dubai. Very professional.' },
   { user: 'Jessica R.', text: 'Laser hair removal was painless. Highly recommend!' },
   { user: 'Fatima A.', text: 'Dr. Shazia is so gentle and kind. ❤️' },
   { user: 'Mike D.', text: 'Finally confident in my smile again.' },

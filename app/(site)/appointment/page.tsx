@@ -5,9 +5,9 @@ import { AppointmentForm } from '@/components/sections/appointment-form'
 import { CtaBand } from '@/components/sections/cta-band'
 
 export const metadata: Metadata = {
-  title: 'Book Appointment | Apollo Advanced Medical Center - Deira, Dubai',
+  title: 'Book Appointment | Apollo Advanced Medical Center - Al Rigga, Union Dubai',
   description:
-    'Book an appointment at Apollo Advanced Medical Center in Deira, Dubai. Choose your service and DHA-licensed doctor/therapist. Quick confirmation by phone or WhatsApp.',
+    'Book an appointment at Apollo Advanced Medical Center in Al Rigga, Union Dubai. Choose your service and DHA-licensed doctor/therapist. Quick confirmation by phone or WhatsApp.',
 }
 
 export default function AppointmentPage() {
@@ -17,7 +17,7 @@ export default function AppointmentPage() {
       <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
           src="/images/about-hero.png"
-          alt="Apollo Medical Center Clinic"
+          alt="Apollo Advanced Medical Center clinic reception for appointment booking in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-50 mix-blend-overlay"
           priority

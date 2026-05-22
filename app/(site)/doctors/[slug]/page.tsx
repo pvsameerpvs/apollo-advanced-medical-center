@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!d) return { title: 'Health Expert Profile' }
   return {
     title: `${d.name} | ${d.role} | Apollo AMC Dubai`,
-    description: `${d.name} is a ${d.dha} in Deira, Dubai. Specialized in ${d.expertise.join(', ')}. Book your consultation today.`, 
+    description: `${d.name} is a ${d.dha} in Al Rigga, Union Dubai. Specialized in ${d.expertise.join(', ')}. Book your consultation today.`,
   }
 }
 
@@ -125,7 +125,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl ring-8 ring-ui-bg">
                     <Image
                       src={d.image}
-                      alt={d.name}
+                      alt={d.imageAlt}
                       fill
                       className="object-cover"
                       priority

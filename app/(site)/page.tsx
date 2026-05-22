@@ -6,10 +6,25 @@ import { DoctorCards } from '@/components/sections/doctor-cards'
 import { InstagramGrid } from '@/components/sections/instagram-grid'
 import { CtaBand } from '@/components/sections/cta-band'
 
+const homeTitle = 'Medical Center in Al Rigga, Union Dubai | Apollo Advanced Medical Center'
+const homeDescription =
+  'Apollo Advanced Medical Center in Al Rigga, Union Dubai offers dental care, aesthetics, laser hair removal, facials, skin care, slimming and DHA-licensed doctors. Book today.'
+
 export const metadata: Metadata = {
-  title: 'Medical, Dental & Aesthetic Clinic in Deira, Dubai',
-  description:
-    'Apollo Advanced Medical Center in Deira, Dubai offers trusted medical, dental and aesthetic services with DHA-licensed doctors. Book an appointment today.',
+  title: {
+    absolute: homeTitle,
+  },
+  description: homeDescription,
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: homeTitle,
+    description: homeDescription,
+    url: '/',
+  },
+  twitter: {
+    title: homeTitle,
+    description: homeDescription,
+  },
 }
 
 export default function HomePage() {

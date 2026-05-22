@@ -9,7 +9,7 @@ import { InstagramGrid } from '@/components/sections/instagram-grid'
 export const metadata: Metadata = {
   title: 'Practical Health & Wellness Blog | Apollo AMC',
   description:
-    'Expert guides on dental care, aesthetics, and skin health from our specialists in Deira, Dubai. Stay informed on the latest medical insights.',
+    'Expert guides on dental care, aesthetics, and skin health from our specialists in Al Rigga, Union Dubai. Stay informed on the latest medical insights.',
   alternates: { canonical: '/blog' },
 }
 
@@ -24,7 +24,7 @@ export default function BlogIndexPage() {
       <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
           src="/images/blog-hero.jpg"
-          alt="Medical Insights"
+          alt="Dental, aesthetic, and skin care insights from Apollo Advanced Medical Center in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-50 mix-blend-overlay"
           priority
@@ -36,7 +36,7 @@ export default function BlogIndexPage() {
             Wellness Insights
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90 md:text-xl">
-            Expert medical advice, dental care tips, and aesthetic guides curated by our specialists in Dubai.
+            Expert medical advice, dental care tips, and aesthetic guides curated by our specialists in Al Rigga, Union Dubai.
           </p>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function BlogIndexPage() {
                 <div className="relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:h-full">
                   <Image
                     src={featuredPost.image}
-                    alt={featuredPost.title}
+                    alt={featuredPost.imageAlt}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -94,7 +94,7 @@ export default function BlogIndexPage() {
                   <div className="relative aspect-[16/10] w-full overflow-hidden">
                     <Image
                       src={p.image}
-                      alt={p.title}
+                      alt={p.imageAlt}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />

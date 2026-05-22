@@ -64,7 +64,7 @@ export async function POST(req: Request) {
           ${row('Preferred Date & Time', formattedPreferredDateTime)}
           ${row('Message', data.message || '-')}
         </table>
-        <p style="margin:16px 0 0;">Clinic: <strong>${site.name}</strong> — Deira, Dubai</p>
+        <p style="margin:16px 0 0;">Clinic: <strong>${site.name}</strong> — Al Rigga, Union Dubai</p>
       </div>
     `
 

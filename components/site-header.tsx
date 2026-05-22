@@ -34,7 +34,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-2">
           <Image
              src="/appolo-logo.png"
-             alt="Apollo Advanced Medical Center"
+             alt="Apollo Advanced Medical Center logo"
              width={300}
              height={80}
              className="h-20 w-auto object-contain"
@@ -98,7 +98,7 @@ export function SiteHeader() {
                   <div className="relative h-12 w-40">
                     <Image
                       src="/appolo-logo.png"
-                      alt="Apollo Advanced Medical Center"
+                      alt="Apollo Advanced Medical Center logo"
                       fill
                       className="object-contain object-left"
                       priority

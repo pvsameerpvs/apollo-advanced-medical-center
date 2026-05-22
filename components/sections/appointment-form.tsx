@@ -304,7 +304,7 @@ export function AppointmentForm() {
             <div className="space-y-4">
                <h3 className="text-2xl font-bold text-brand-green">Why Choose Apollo?</h3>
                <p className="text-ui-text/70 leading-relaxed">
-                  Join thousands of satisfied patients who trust us for their health and aesthetic goals in Dubai.
+                  Join thousands of satisfied patients who trust us for their health and aesthetic goals in Al Rigga, Union Dubai.
                </p>
             </div>
 
@@ -333,7 +333,7 @@ export function AppointmentForm() {
                   </div>
                   <div>
                      <h4 className="font-bold text-brand-green">Convenient Timings</h4>
-                     <p className="mt-1 text-sm text-ui-text/60 leading-relaxed">Flexible morning and evening slots to suit your busy schedule in Deira.</p>
+                     <p className="mt-1 text-sm text-ui-text/60 leading-relaxed">Flexible morning and evening slots to suit your busy schedule in Al Rigga, Union Dubai.</p>
                   </div>
                </div>
             </div>

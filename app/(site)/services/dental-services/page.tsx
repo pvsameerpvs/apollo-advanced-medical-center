@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { ServicePageTemplate } from '@/components/sections/service-page'
 
 export const metadata: Metadata = {
-  title: 'Dental Services in Deira, Dubai',
+  title: 'Dental Services in Al Rigga, Union Dubai',
   description:
-    'Teeth whitening, scaling & polishing, root canal, fillings, crowns, veneers, dentures and extractions at Apollo Advanced Medical Center in Deira, Dubai. Book an appointment.',
+    'Teeth whitening, scaling & polishing, root canal, fillings, crowns, veneers, dentures and extractions at Apollo Advanced Medical Center in Al Rigga, Union Dubai. Book an appointment.',
   alternates: { canonical: '/services/dental-services' },
 }
 
@@ -15,6 +15,7 @@ export default function DentalServicesPage() {
       title="Dental Services"
       intro="From routine cleaning to advanced restorative work, our dental team provides gentle, medical-grade care designed around comfort, hygiene, and long-term oral health. Every plan includes clear options and aftercare instructions."
       image="/images/services/dental.png"
+      imageAlt="Dental services and smile care at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
       included={[
         'Teeth Whitening',
         'Scaling & Polishing',

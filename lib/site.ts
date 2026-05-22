@@ -1,11 +1,11 @@
 export const site = {
   name: 'Apollo Advanced Medical Center',
   shortName: 'Apollo AMC',
-  description: 'Trusted medical, dental & aesthetic clinic in Deira, Dubai, UAE. DHA-licensed doctors, modern equipment, and personalized care.',
+  description: 'Trusted medical, dental & aesthetic clinic in Al Rigga, Union Dubai, UAE. DHA-licensed doctors, modern equipment, and personalized care.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
   locale: 'en_AE',
   address: {
-    street: 'BA1 Mezzanine floor Bin jarsh building, near fish roundabout, Al rigga Deira',
+    street: 'BA1 Mezzanine floor Bin jarsh building, near fish roundabout, Al Rigga, Union Dubai',
     city: 'Dubai',
     region: 'Dubai',
     country: 'UAE',

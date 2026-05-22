@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import { ServicePageTemplate } from '@/components/sections/service-page'
 
 export const metadata: Metadata = {
-  title: 'Slimming & Body Contouring in Deira, Dubai',
-  description: 'Non-invasive slimming and body contouring support in Deira, Dubai with professional guidance and safe protocols.',
+  title: 'Slimming & Body Contouring in Al Rigga, Union Dubai',
+  description: 'Non-invasive slimming and body contouring support in Al Rigga, Union Dubai with professional guidance and safe protocols.',
   alternates: { canonical: '/services/slimming-body-contouring' },
 }
 
@@ -15,6 +15,7 @@ export default function SlimmingBodyContouringPage() {
       title="Slimming & Body Contouring"
       intro="Non-invasive body treatments planned around your goals, comfort, and safety."
       image="/images/services/slimming.png"
+      imageAlt="Slimming and body contouring service at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
       included={["Slimming Treatment", "Body Contouring", "Targeted Areas"]}
       benefits={[
         'Non-invasive options supervised by professionals',

@@ -8,16 +8,19 @@ import { InstagramGrid } from '@/components/sections/instagram-grid'
 import { CtaBand } from '@/components/sections/cta-band'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Apollo Advanced Medical Center - Deira, Dubai',
+  title: 'Contact Us | Apollo Advanced Medical Center - Al Rigga, Union Dubai',
   description:
-    'Visit Apollo Advanced Medical Center in Deira, Dubai. Call or WhatsApp to book an appointment, view clinic timings, and find us on the map.',
+    'Visit Apollo Advanced Medical Center in Al Rigga, Union Dubai. Call or WhatsApp to book an appointment, view clinic timings, and find us on the map.',
 }
 
 export default function ContactUsPage() {
   const waLink = `https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`
+  const fallbackMapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(
+    `${site.address.street}, ${site.address.city}, ${site.address.country}`
+  )}&output=embed`
   const mapEmbed =
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL ||
-    'https://www.google.com/maps?q=Deira%20Dubai&output=embed'
+    fallbackMapEmbed
 
   return (
     <>
@@ -25,7 +28,7 @@ export default function ContactUsPage() {
       <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
           src="/images/service-hero.jpg"
-          alt="Contact Apollo AMC"
+          alt="Apollo Advanced Medical Center clinic contact and location in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-50 mix-blend-overlay"
           priority
@@ -51,9 +54,9 @@ export default function ContactUsPage() {
             <div className="lg:col-span-12 xl:col-span-5 space-y-8">
                <div className="space-y-4">
                   <h2 className="text-sm font-bold uppercase tracking-widest text-brand-orange">Reach Us Anywhere</h2>
-                  <h3 className="text-3xl font-bold text-brand-green md:text-4xl">Visit Our Clinic in Deira</h3>
+                  <h3 className="text-3xl font-bold text-brand-green md:text-4xl">Visit Our Clinic in Al Rigga, Union Dubai</h3>
                   <p className="text-lg text-ui-text/70">
-                    Located in the heart of Deira, our clinic offers a serene and professional environment for all your medical and aesthetic needs.
+                    Located in Al Rigga, Union Dubai, our clinic offers a serene and professional environment for all your medical and aesthetic needs.
                   </p>
                </div>
 
@@ -126,6 +129,7 @@ export default function ContactUsPage() {
                      title="Apollo Advanced Medical Center Map"
                      src={mapEmbed}
                      className="h-full w-full grayscale contrast-125 brightness-105"
+                     allowFullScreen
                      loading="lazy"
                      referrerPolicy="no-referrer-when-downgrade"
                   />

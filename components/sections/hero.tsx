@@ -20,17 +20,41 @@ const slides = [
 ]
 
 const bgImages = [
-  '/images/hero-bg.png',
-  '/images/hero-bg-2.png',
-  '/images/hero-bg-3.png',
-  '/images/hero-bg-4.png',
+  {
+    src: '/images/hero-bg.png',
+    alt: 'Apollo Advanced Medical Center clinic care in Al Rigga, Union Dubai',
+  },
+  {
+    src: '/images/hero-bg-2.png',
+    alt: 'Dental and aesthetic care at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
+  },
+  {
+    src: '/images/hero-bg-3.png',
+    alt: 'Laser, facial, and skin care services at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
+  },
+  {
+    src: '/images/hero-bg-4.png',
+    alt: 'Trusted medical center in Al Rigga, Union Dubai',
+  },
 ]
 
 const bgImagesMobile = [
-  '/images/mobile-hero-bg1.png',
-  '/images/mobile-hero-bg2.png',
-  '/images/mobile-hero-bg3.png',
-  '/images/mobile-hero-bg4.png',
+  {
+    src: '/images/mobile-hero-bg1.png',
+    alt: 'Apollo Advanced Medical Center clinic care in Al Rigga, Union Dubai',
+  },
+  {
+    src: '/images/mobile-hero-bg2.png',
+    alt: 'Dental and aesthetic care at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
+  },
+  {
+    src: '/images/mobile-hero-bg3.png',
+    alt: 'Laser, facial, and skin care services at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
+  },
+  {
+    src: '/images/mobile-hero-bg4.png',
+    alt: 'Trusted medical center in Al Rigga, Union Dubai',
+  },
 ]
 
 export function Hero() {
@@ -52,15 +76,15 @@ export function Hero() {
         <div className="hidden md:block absolute inset-0">
           {bgImages.map((img, idx) => (
             <div
-              key={`desktop-${img}`}
+              key={`desktop-${img.src}`}
               className={cn(
                 "absolute inset-0 transition-opacity duration-1000 ease-in-out",
                 idx === currentBg ? "opacity-100" : "opacity-0"
               )}
             >
               <Image
-                src={img}
-                alt="Hero Background Desktop"
+                src={img.src}
+                alt={img.alt}
                 fill
                 className="object-cover"
                 priority={idx === 0}
@@ -73,15 +97,15 @@ export function Hero() {
         <div className="block md:hidden absolute inset-0">
           {bgImagesMobile.map((img, idx) => (
             <div
-              key={`mobile-${img}`}
+              key={`mobile-${img.src}`}
               className={cn(
                 "absolute inset-0 transition-opacity duration-1000 ease-in-out",
                 idx === currentBg ? "opacity-100" : "opacity-0"
               )}
             >
               <Image
-                src={img}
-                alt="Hero Background Mobile"
+                src={img.src}
+                alt={img.alt}
                 fill
                 className="object-cover"
                 priority={idx === 0}

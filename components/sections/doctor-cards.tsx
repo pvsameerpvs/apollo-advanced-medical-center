@@ -32,7 +32,7 @@ export function DoctorCards() {
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-brand-green/5">
                 <Image
                   src={d.image}
-                  alt={d.name}
+                  alt={d.imageAlt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

@@ -30,14 +30,14 @@ export function SiteFooter() {
             <Link href="/" className="inline-block">
               <Image
                 src="/appolo-logo.png"
-                alt="Apollo Advanced Medical Center"
+                alt="Apollo Advanced Medical Center logo"
                 width={200}
                 height={60}
                 className="h-14 w-auto object-contain brightness-0 invert"
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/80">
-              Your trusted destination for advanced medical, dental, and aesthetic care in Deira, Dubai. Licensed excellence you can rely on.
+              Your trusted destination for advanced medical, dental, and aesthetic care in Rigga, Dubai. Licensed excellence you can rely on.
             </p>
             <div className="mt-6 flex gap-4">
               <a

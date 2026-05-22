@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { ServicePageTemplate } from '@/components/sections/service-page'
 
 export const metadata: Metadata = {
-  title: 'Aesthetic & Beauty Services in Deira, Dubai',
+  title: 'Aesthetic & Beauty Services in Al Rigga, Union Dubai',
   description:
-    'Laser, facial and beauty treatments at Apollo Advanced Medical Center in Deira, Dubai. Book your consultation with DHA-licensed therapists.',
+    'Laser, facial and beauty treatments at Apollo Advanced Medical Center in Al Rigga, Union Dubai. Book your consultation with DHA-licensed therapists.',
   alternates: { canonical: '/services/aesthetic-beauty-services' },
 }
 
@@ -15,6 +15,7 @@ export default function AestheticBeautyServicesPage() {
       title="Aesthetic & Beauty Services"
       intro="Our aesthetic and beauty services focus on safe, medical-grade protocols for smoother skin, a healthier glow, and confident results. Every plan is personalized after a consultation, with clear aftercare guidance to protect your skin."
       image="/images/services/aesthetic.png"
+      imageAlt="Aesthetic and beauty treatment services at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
       included={[
         'Laser Hair Removal',
         'Facial Treatments',
