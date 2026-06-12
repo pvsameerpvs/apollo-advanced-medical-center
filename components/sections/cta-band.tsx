@@ -23,7 +23,7 @@ export function CtaBand() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild>
+              <Button asChild className="bg-[#b94f16] hover:bg-[#a84412]">
                 <Link href="/appointment">Book Appointment</Link>
               </Button>
               <Button asChild variant="outline">

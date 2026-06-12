@@ -1,17 +1,18 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BadgeCheck, ChevronRight, Star, Heart, ShieldCheck } from 'lucide-react'
 
 import { doctors } from '@/lib/doctors'
 import { CtaBand } from '@/components/sections/cta-band'
+import { createPageMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'Our Medical Team | Apollo Advanced Medical Center',
+export const metadata = createPageMetadata({
+  title: 'DHA-Licensed Doctors & Therapists in Al Rigga',
   description:
     'Meet our team of DHA-licensed doctors and therapists at Apollo Advanced Medical Center in Al Rigga, Union Dubai. Excellence in dental, aesthetic, and skin care.',
-  alternates: { canonical: '/doctors' },
-}
+  path: '/doctors',
+  image: '/images/dha-licensed-medical-team-dubai.webp',
+})
 
 export default function DoctorsPage() {
   return (
@@ -19,7 +20,7 @@ export default function DoctorsPage() {
       {/* Hero Section */}
       <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
-          src="/images/doctors-hero.jpg"
+          src="/images/dha-licensed-medical-team-dubai.webp"
           alt="DHA licensed medical team at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-60 mix-blend-overlay"

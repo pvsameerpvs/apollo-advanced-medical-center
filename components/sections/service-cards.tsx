@@ -62,7 +62,7 @@ export function ServiceCards() {
                     </li>
                   ))}
                   {cat.items.length > 4 && (
-                    <li className="text-xs font-medium text-brand-orange">
+                    <li className="text-xs font-semibold text-brand-green">
                       + {cat.items.length - 4} more treatments
                     </li>
                   )}

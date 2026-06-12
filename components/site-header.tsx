@@ -33,10 +33,10 @@ export function SiteHeader() {
       <div className="container flex h-24 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image
-             src="/appolo-logo.png"
+             src="/images/apollo-advanced-medical-center-logo.webp"
              alt="Apollo Advanced Medical Center logo"
              width={300}
-             height={80}
+             height={274}
              className="h-20 w-auto object-contain"
              priority
           />
@@ -97,7 +97,7 @@ export function SiteHeader() {
                 <div className="flex items-center justify-between border-b border-ui-border/50 pb-6">
                   <div className="relative h-12 w-40">
                     <Image
-                      src="/appolo-logo.png"
+                      src="/images/apollo-advanced-medical-center-logo.webp"
                       alt="Apollo Advanced Medical Center logo"
                       fill
                       className="object-contain object-left"

@@ -7,7 +7,6 @@ import { Calendar, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { site } from '@/lib/site'
 import { WhatsAppIcon } from '@/components/icons/whatsapp'
-import { cn } from '@/lib/utils'
 
 const slides = [
   {
@@ -21,38 +20,38 @@ const slides = [
 
 const bgImages = [
   {
-    src: '/images/hero-bg.png',
+    src: '/images/apollo-medical-center-al-rigga-dubai.webp',
     alt: 'Apollo Advanced Medical Center clinic care in Al Rigga, Union Dubai',
   },
   {
-    src: '/images/hero-bg-2.png',
+    src: '/images/apollo-medical-dental-aesthetic-care-dubai.webp',
     alt: 'Dental and aesthetic care at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
-    src: '/images/hero-bg-3.png',
+    src: '/images/apollo-laser-facial-skin-care-dubai.webp',
     alt: 'Laser, facial, and skin care services at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
-    src: '/images/hero-bg-4.png',
+    src: '/images/apollo-medical-center-clinic-dubai.webp',
     alt: 'Trusted medical center in Al Rigga, Union Dubai',
   },
 ]
 
 const bgImagesMobile = [
   {
-    src: '/images/mobile-hero-bg1.png',
+    src: '/images/apollo-medical-center-al-rigga-dubai-mobile.webp',
     alt: 'Apollo Advanced Medical Center clinic care in Al Rigga, Union Dubai',
   },
   {
-    src: '/images/mobile-hero-bg2.png',
+    src: '/images/apollo-medical-dental-aesthetic-care-dubai-mobile.webp',
     alt: 'Dental and aesthetic care at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
-    src: '/images/mobile-hero-bg3.png',
+    src: '/images/apollo-laser-facial-skin-care-dubai-mobile.webp',
     alt: 'Laser, facial, and skin care services at Apollo Advanced Medical Center in Al Rigga, Union Dubai',
   },
   {
-    src: '/images/mobile-hero-bg4.png',
+    src: '/images/apollo-medical-center-clinic-dubai-mobile.webp',
     alt: 'Trusted medical center in Al Rigga, Union Dubai',
   },
 ]
@@ -60,6 +59,8 @@ const bgImagesMobile = [
 export function Hero() {
   const slide = slides[0]
   const [currentBg, setCurrentBg] = React.useState(0)
+  const desktopImage = bgImages[currentBg]
+  const mobileImage = bgImagesMobile[currentBg]
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -74,44 +75,30 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         {/* Desktop Images */}
         <div className="hidden md:block absolute inset-0">
-          {bgImages.map((img, idx) => (
-            <div
-              key={`desktop-${img.src}`}
-              className={cn(
-                "absolute inset-0 transition-opacity duration-1000 ease-in-out",
-                idx === currentBg ? "opacity-100" : "opacity-0"
-              )}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover"
-                priority={idx === 0}
-              />
-            </div>
-          ))}
+          <div key={`desktop-${desktopImage.src}`} className="absolute inset-0 animate-in fade-in duration-1000">
+            <Image
+              src={desktopImage.src}
+              alt={desktopImage.alt}
+              fill
+              className="object-cover"
+              priority={currentBg === 0}
+              fetchPriority={currentBg === 0 ? 'high' : 'auto'}
+            />
+          </div>
         </div>
 
         {/* Mobile Images */}
         <div className="block md:hidden absolute inset-0">
-          {bgImagesMobile.map((img, idx) => (
-            <div
-              key={`mobile-${img.src}`}
-              className={cn(
-                "absolute inset-0 transition-opacity duration-1000 ease-in-out",
-                idx === currentBg ? "opacity-100" : "opacity-0"
-              )}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover"
-                priority={idx === 0}
-              />
-            </div>
-          ))}
+          <div key={`mobile-${mobileImage.src}`} className="absolute inset-0 animate-in fade-in duration-1000">
+            <Image
+              src={mobileImage.src}
+              alt={mobileImage.alt}
+              fill
+              className="object-cover"
+              priority={currentBg === 0}
+              fetchPriority={currentBg === 0 ? 'high' : 'auto'}
+            />
+          </div>
         </div>
       </div>
 

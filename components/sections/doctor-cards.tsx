@@ -49,14 +49,14 @@ export function DoctorCards() {
               {/* Content */}
               <div className="flex flex-1 flex-col p-5">
                 <div className="mb-2">
-                   <span className="inline-block rounded-md bg-brand-orangeSoft/50 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-brand-orange">
+                   <span className="inline-block rounded-md bg-brand-orangeSoft/50 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-brand-green">
                      {d.role}
                    </span>
                 </div>
                 <h3 className="text-xl font-bold text-ui-text group-hover:text-brand-green transition-colors">
                   {d.name}
                 </h3>
-                <p className="mt-1 text-sm text-ui-text/60 line-clamp-1">{d.qualifications}</p>
+                <p className="mt-1 text-sm text-ui-text/75 line-clamp-1">{d.qualifications}</p>
 
                 <div className="mt-4 grid flex-1 content-start gap-2">
                   {d.expertise.slice(0, 2).map((e) => (

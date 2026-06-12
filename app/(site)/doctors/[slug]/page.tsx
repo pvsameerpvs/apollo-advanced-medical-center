@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import Link from 'next/link'
 import Image from 'next/image'
 import { BadgeCheck, CheckCircle2, Star, Calendar, ArrowLeft } from 'lucide-react'
@@ -7,6 +6,7 @@ import { BadgeCheck, CheckCircle2, Star, Calendar, ArrowLeft } from 'lucide-reac
 import { getDoctorBySlug, doctors } from '@/lib/doctors'
 import { Button } from '@/components/ui/button'
 import { site } from '@/lib/site'
+import { createPageMetadata } from '@/lib/metadata'
 
 export function generateStaticParams() {
   return doctors.map((d) => ({ slug: d.slug }))
@@ -16,10 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const d = getDoctorBySlug(slug)
   if (!d) return { title: 'Health Expert Profile' }
-  return {
-    title: `${d.name} | ${d.role} | Apollo AMC Dubai`,
-    description: `${d.name} is a ${d.dha} in Al Rigga, Union Dubai. Specialized in ${d.expertise.join(', ')}. Book your consultation today.`,
-  }
+  return createPageMetadata({
+    title: `${d.name}, ${d.role} in Al Rigga, Dubai`,
+    description: `${d.name} is a ${d.role} at Apollo Advanced Medical Center in Al Rigga, Dubai. Expertise includes ${d.expertise.slice(0, 3).join(', ')}.`,
+    path: `/doctors/${d.slug}`,
+    image: d.image,
+  })
 }
 
 export default async function DoctorProfilePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -45,11 +47,26 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
   const physicianSchema = {
     '@context': 'https://schema.org',
     '@type': 'Physician',
+    '@id': `${site.url}/doctors/${d.slug}/#physician`,
     name: d.name,
-    jobTitle: d.role,
     description: d.bio,
-    medicalSpecialty: d.role,
-    image: d.image,
+    image: `${site.url}${d.image}`,
+    url: `${site.url}/doctors/${d.slug}/`,
+    medicalSpecialty: d.expertise,
+    knowsAbout: d.services.map((s) => ({ '@type': 'MedicalService', name: s })),
+    affiliatedWith: {
+      '@type': 'MedicalClinic',
+      '@id': `${site.url}/#medical-clinic`,
+      name: site.name,
+      url: site.url,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: site.address.street,
+        addressLocality: site.address.city,
+        addressRegion: site.address.region,
+        addressCountry: site.address.countryCode,
+      },
+    },
   }
 
   return (
@@ -160,7 +177,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      <Script
+      <script
         id={`schema-physician-${d.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}

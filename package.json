@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "next build",
+    "deploy:zip": "npm run build && rm -f apollo-deploy.zip && cd out && zip -qr ../apollo-deploy.zip .",
     "start": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },

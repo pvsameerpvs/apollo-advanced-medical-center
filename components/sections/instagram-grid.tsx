@@ -56,9 +56,11 @@ export function InstagramGrid({
               className="relative aspect-[9/16] w-full overflow-hidden rounded-[2.5rem] border border-ui-border bg-white shadow-2xl shadow-brand-green/5 ring-1 ring-black/5"
             >
               <iframe
+                title={`Apollo Advanced Medical Center Instagram reel ${index + 1}`}
                 src={`https://www.instagram.com/reel/${id}/embed`}
                 className="absolute inset-0 h-full w-full border-0"
                 allowFullScreen
+                loading="lazy"
                 scrolling="no"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               />

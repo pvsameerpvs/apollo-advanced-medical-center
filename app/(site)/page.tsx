@@ -1,31 +1,21 @@
-import type { Metadata } from 'next'
-
 import { Hero } from '@/components/sections/hero'
 import { ServiceCards } from '@/components/sections/service-cards'
 import { DoctorCards } from '@/components/sections/doctor-cards'
 import { InstagramGrid } from '@/components/sections/instagram-grid'
 import { CtaBand } from '@/components/sections/cta-band'
+import { HomeFaq } from '@/components/sections/home-faq'
+import { createPageMetadata } from '@/lib/metadata'
 
-const homeTitle = 'Medical Center in Al Rigga, Union Dubai | Apollo Advanced Medical Center'
+const homeTitle = 'Apollo Advanced Medical Centre | Medical Center in Rigga, Deira, Dubai'
 const homeDescription =
-  'Apollo Advanced Medical Center in Al Rigga, Union Dubai offers dental care, aesthetics, laser hair removal, facials, skin care, slimming and DHA-licensed doctors. Book today.'
+  'Apollo Advanced Medical Center in Rigga, Deira, Dubai — dental, aesthetic & laser clinic near Union. DHA medical centre. Book online or call 042864876.'
 
-export const metadata: Metadata = {
-  title: {
-    absolute: homeTitle,
-  },
+export const metadata = createPageMetadata({
+  title: homeTitle,
   description: homeDescription,
-  alternates: { canonical: '/' },
-  openGraph: {
-    title: homeTitle,
-    description: homeDescription,
-    url: '/',
-  },
-  twitter: {
-    title: homeTitle,
-    description: homeDescription,
-  },
-}
+  path: '/',
+  absoluteTitle: true,
+})
 
 export default function HomePage() {
   return (
@@ -33,6 +23,7 @@ export default function HomePage() {
       <Hero />
       <ServiceCards />
       <DoctorCards />
+      <HomeFaq />
       <InstagramGrid />
       <CtaBand />
     </>

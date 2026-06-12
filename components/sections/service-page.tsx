@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { CheckCircle2, ArrowRight, Sparkles, User, Settings, ArrowLeft, Clock, ShieldCheck } from 'lucide-react'
+import { CheckCircle2, ArrowRight, Sparkles, User, Settings, ArrowLeft, Clock, ShieldCheck, ChevronDown } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { faqSchema, medicalServiceSchema, type FAQ } from '@/lib/schemas'
 
 export function ServicePageTemplate(props: {
   title: string
@@ -13,8 +14,11 @@ export function ServicePageTemplate(props: {
   included?: string[]
   image: string
   imageAlt?: string
+  faqs?: FAQ[]
+  areaName?: string
+  path: string
 }) {
-  const { title, intro, benefits, process, who, included, image, imageAlt } = props
+  const { title, intro, benefits, process, who, included, image, imageAlt, faqs, areaName, path } = props
 
   return (
     <>
@@ -163,6 +167,46 @@ export function ServicePageTemplate(props: {
           </div>
         </div>
       </section>
+
+      {faqs && faqs.length > 0 && (
+        <section className="border-t border-ui-border bg-ui-bg/30 py-20 md:py-28">
+          <div className="container max-w-4xl">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold text-brand-green md:text-4xl">Frequently Asked Questions</h2>
+              <p className="mt-4 text-ui-text/70">Common questions about {title.toLowerCase()} at Apollo Advanced Medical Center in {areaName || 'Al Rigga, Union Dubai'}.</p>
+            </div>
+            <div className="space-y-4">
+              {faqs.map((faq, idx) => (
+                <details key={idx} className="group rounded-2xl border border-ui-border bg-white p-6 shadow-soft transition-all open:border-brand-orange/30 open:shadow-lg">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 text-left">
+                    <span className="text-base font-bold text-brand-green">{faq.question}</span>
+                    <ChevronDown className="h-5 w-5 shrink-0 text-brand-orange transition-transform group-open:rotate-180" />
+                  </summary>
+                  <div className="mt-4 border-t border-ui-border pt-4">
+                    <p className="text-sm leading-relaxed text-ui-text/80">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {faqs && faqs.length > 0 && (
+        <script
+          id="faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
+        />
+      )}
+
+      <script
+        id="medical-service-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalServiceSchema(title, intro, areaName || 'Al Rigga, Dubai', path)),
+        }}
+      />
     </>
   )
 }

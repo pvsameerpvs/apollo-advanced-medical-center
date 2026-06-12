@@ -1,17 +1,18 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, User, ArrowRight, Tag } from 'lucide-react'
 
 import { getAllPosts } from '@/lib/blog'
 import { InstagramGrid } from '@/components/sections/instagram-grid'
+import { createPageMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'Practical Health & Wellness Blog | Apollo AMC',
+export const metadata = createPageMetadata({
+  title: 'Health, Dental & Aesthetic Guides',
   description:
     'Expert guides on dental care, aesthetics, and skin health from our specialists in Al Rigga, Union Dubai. Stay informed on the latest medical insights.',
-  alternates: { canonical: '/blog' },
-}
+  path: '/blog',
+  image: '/images/health-dental-aesthetic-guides-dubai.webp',
+})
 
 export default function BlogIndexPage() {
   const allPosts = getAllPosts()
@@ -23,7 +24,7 @@ export default function BlogIndexPage() {
       {/* Hero Section */}
       <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
-          src="/images/blog-hero.jpg"
+          src="/images/health-dental-aesthetic-guides-dubai.webp"
           alt="Dental, aesthetic, and skin care insights from Apollo Advanced Medical Center in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-50 mix-blend-overlay"

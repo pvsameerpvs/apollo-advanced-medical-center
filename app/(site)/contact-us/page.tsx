@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import { MapPin, Phone, MessageCircle, Clock, Mail, ChevronRight } from 'lucide-react'
 
@@ -6,12 +5,15 @@ import { site } from '@/lib/site'
 import { Button } from '@/components/ui/button'
 import { InstagramGrid } from '@/components/sections/instagram-grid'
 import { CtaBand } from '@/components/sections/cta-band'
+import { createPageMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'Contact Us | Apollo Advanced Medical Center - Al Rigga, Union Dubai',
+export const metadata = createPageMetadata({
+  title: 'Contact Apollo Advanced Medical Center in Al Rigga',
   description:
     'Visit Apollo Advanced Medical Center in Al Rigga, Union Dubai. Call or WhatsApp to book an appointment, view clinic timings, and find us on the map.',
-}
+  path: '/contact-us',
+  image: '/images/medical-dental-aesthetic-services-dubai.webp',
+})
 
 export default function ContactUsPage() {
   const waLink = `https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`
@@ -27,7 +29,7 @@ export default function ContactUsPage() {
       {/* Hero Section */}
       <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
-          src="/images/service-hero.jpg"
+          src="/images/medical-dental-aesthetic-services-dubai.webp"
           alt="Apollo Advanced Medical Center clinic contact and location in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-50 mix-blend-overlay"

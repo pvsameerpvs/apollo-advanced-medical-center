@@ -1,17 +1,18 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ShieldCheck, Stethoscope, Sparkles, CheckCircle2 } from 'lucide-react'
 
 import { CtaBand } from '@/components/sections/cta-band'
 import { Button } from '@/components/ui/button'
+import { createPageMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'About Us | Apollo Advanced Medical Center',
+export const metadata = createPageMetadata({
+  title: 'About Our Medical Center in Al Rigga, Dubai',
   description:
     'Learn about Apollo Advanced Medical Center in Al Rigga, Union Dubai. A premium clinic combining DHA-licensed expertise, advanced technology, and patient-centered care.',
-  alternates: { canonical: '/about-us' },
-}
+  path: '/about-us',
+  image: '/images/apollo-medical-center-about-dubai.webp',
+})
 
 export default function AboutPage() {
   return (
@@ -19,7 +20,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
-          src="/images/about-hero.png"
+          src="/images/apollo-medical-center-about-dubai.webp"
           alt="Apollo Advanced Medical Center clinic interior in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-60 mix-blend-overlay"
@@ -47,7 +48,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
                 <Image
-                  src="/images/dental-about.jpg"
+                  src="/images/dentist-patient-care-al-rigga-dubai.webp"
                   alt="Dentist providing patient care at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
@@ -115,7 +116,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[2rem] shadow-2xl md:aspect-[21/9]">
             <Image
-              src="/images/about-bg.jpeg"
+              src="/images/apollo-medical-center-team-dubai.webp"
               alt="Apollo Advanced Medical Center clinic team in Al Rigga, Union Dubai"
               fill
               className="object-cover"

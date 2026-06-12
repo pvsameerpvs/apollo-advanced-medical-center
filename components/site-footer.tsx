@@ -29,10 +29,10 @@ export function SiteFooter() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block">
               <Image
-                src="/appolo-logo.png"
+                src="/images/apollo-advanced-medical-center-logo.webp"
                 alt="Apollo Advanced Medical Center logo"
                 width={200}
-                height={60}
+                height={183}
                 className="h-14 w-auto object-contain brightness-0 invert"
               />
             </Link>
@@ -44,6 +44,7 @@ export function SiteFooter() {
                 href={site.instagram.url}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Apollo Advanced Medical Center on Instagram"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
               >
                 <Instagram className="h-5 w-5" />
@@ -52,6 +53,7 @@ export function SiteFooter() {
                 href={site.facebook.url}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Apollo Advanced Medical Center on Facebook"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
               >
                 <Facebook className="h-5 w-5" />
@@ -60,6 +62,7 @@ export function SiteFooter() {
                 href={site.linkedin.url}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Apollo Advanced Medical Center on LinkedIn"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-brand-orange"
               >
                 <Linkedin className="h-5 w-5" />
@@ -127,7 +130,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-sm text-white/60 md:flex-row md:text-left">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-sm text-white/90 md:flex-row md:text-left">
            <p>© {new Date().getFullYear()} Apollo Advanced Medical Center. All rights reserved.</p>
           
         </div>

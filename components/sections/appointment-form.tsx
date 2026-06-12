@@ -62,8 +62,7 @@ export function AppointmentForm() {
     defaultValues: appointmentDefaultValues,
   })
 
-  async function onSubmit(values: AppointmentPayload) {
-    setStatus('loading')
+  function onSubmit(values: AppointmentPayload) {
     setMessage('')
     const nextWhatsappUrl = buildAppointmentWhatsAppUrl(values, site.contact.whatsapp)
     setWhatsappUrl(nextWhatsappUrl)
@@ -72,32 +71,11 @@ export function AppointmentForm() {
       window.open(nextWhatsappUrl, '_blank', 'noopener,noreferrer')
     }
 
-    try {
-      const res = await fetch('/api/appointment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      })
-
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string }
-
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || 'Something went wrong. Please try again.')
-      }
-
-      setStatus('success')
-      setMessage(
-        'WhatsApp should now be open with your appointment details. Send the message there and our team will confirm your appointment shortly.'
-      )
-      reset(appointmentDefaultValues)
-    } catch (err) {
-      console.error('[AppointmentForm]', err)
-      setStatus('success')
-      setMessage(
-        'WhatsApp should now be open with your appointment details. If it did not open automatically, use the button below to send your request manually.'
-      )
-      reset(appointmentDefaultValues)
-    }
+    setStatus('success')
+    setMessage(
+      'WhatsApp should now be open with your appointment details. If it did not open automatically, use the button below to send your request manually.'
+    )
+    reset(appointmentDefaultValues)
   }
 
   const waLink = `https://wa.me/${site.contact.whatsapp.replace(/\D/g, '')}`

@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronRight, ArrowRight } from 'lucide-react'
@@ -6,13 +5,15 @@ import { ChevronRight, ArrowRight } from 'lucide-react'
 import { serviceCategories } from '@/lib/services'
 import { CtaBand } from '@/components/sections/cta-band'
 import { Button } from '@/components/ui/button'
+import { createPageMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'Our Services | Apollo Advanced Medical Center',
+export const metadata = createPageMetadata({
+  title: 'Medical, Dental & Aesthetic Services in Dubai',
   description:
     'Discover our range of premium dental, aesthetic, and skincare services in Al Rigga, Union Dubai. Personalized treatments with DHA-licensed expertise.',
-  alternates: { canonical: '/services' },
-}
+  path: '/services',
+  image: '/images/medical-dental-aesthetic-services-dubai.webp',
+})
 
 export default function ServicesPage() {
   return (
@@ -22,7 +23,7 @@ export default function ServicesPage() {
 
  <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
-          src="/images/service-hero.jpg"
+          src="/images/medical-dental-aesthetic-services-dubai.webp"
           alt="Modern treatment room at Apollo Advanced Medical Center in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-60 mix-blend-overlay"

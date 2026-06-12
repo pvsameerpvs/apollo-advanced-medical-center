@@ -50,7 +50,7 @@ export function getAllPosts(): BlogPostMeta[] {
         description: data.description || '',
         date: data.date || '',
         category,
-        image: data.image || '/images/blog/placeholder.jpg',
+        image: data.image || '/images/health-dental-aesthetic-guides-dubai.webp',
         imageAlt: data.imageAlt || buildBlogImageAlt(title, category),
       }
     })
@@ -71,7 +71,7 @@ export async function getPost(slug: string) {
       description: data.description || '',
       date: data.date || '',
       category,
-      image: data.image || '/images/blog/placeholder.jpg',
+      image: data.image || '/images/health-dental-aesthetic-guides-dubai.webp',
       imageAlt: data.imageAlt || buildBlogImageAlt(title, category),
     } as BlogPostMeta,
     content,

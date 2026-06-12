@@ -5,6 +5,8 @@ import { ArrowLeft, Calendar, Tag, Clock, Share2, User } from 'lucide-react'
 
 import { getAllPosts, getPost } from '@/lib/blog'
 import { Button } from '@/components/ui/button'
+import { createPageMetadata } from '@/lib/metadata'
+import { site } from '@/lib/site'
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }))
@@ -14,11 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) return { title: 'Blog Post' }
-  return {
-    title: `${post.meta.title} | Apollo AMC Blog`,
+  return createPageMetadata({
+    title: post.meta.title,
     description: post.meta.description,
-    alternates: { canonical: `/blog/${post.meta.slug}` },
-  }
+    path: `/blog/${post.meta.slug}`,
+    image: post.meta.image,
+  })
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -44,6 +47,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   const MDX = (await import(`@/content/blog/${slug}.mdx`)).default
+
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.meta.title,
+    description: post.meta.description,
+    image: `${site.url}${post.meta.image}`,
+    datePublished: post.meta.date,
+    dateModified: post.meta.date,
+    author: {
+      '@type': 'Organization',
+      '@id': `${site.url}/#medical-clinic`,
+      name: site.name,
+      url: site.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${site.url}/#medical-clinic`,
+      name: site.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${site.url}/images/apollo-advanced-medical-center-logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${site.url}/blog/${post.meta.slug}/`,
+    },
+  }
 
   return (
     <>
@@ -153,8 +185,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                   {/* Trust Info */}
                   <div className="rounded-3xl border border-ui-border p-6 text-center">
-                     <p className="text-xs font-bold uppercase tracking-widest text-brand-orange">Medical Standard</p>
-                     <p className="mt-2 text-sm text-ui-text/70 italic">"All content reviewed by DHA licensed medical practitioners."</p>
+                     <p className="text-xs font-bold uppercase tracking-widest text-brand-orange">Medical Information</p>
+                     <p className="mt-2 text-sm text-ui-text/70">This article provides general information and does not replace a consultation with a qualified healthcare professional.</p>
                   </div>
                </div>
             </div>
@@ -162,6 +194,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </section>
+
+      <script
+        id="schema-blogposting"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
     </>
   )
 }

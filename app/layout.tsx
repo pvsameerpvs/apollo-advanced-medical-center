@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import { Inter, Outfit, Oswald } from 'next/font/google'
 
 import './globals.css'
@@ -25,14 +24,22 @@ const fontOswald = Oswald({
   variable: '--font-oswald',
 })
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  ...(googleVerification
+    ? {
+        other: {
+          'google-site-verification': googleVerification,
+        },
+      }
+    : {}),
   title: {
     default: 'Apollo Advanced Medical Center | Medical, Dental & Aesthetic Clinic in Al Rigga, Union Dubai',
-    template: '%s | Apollo Advanced Medical Center',
+    template: '%s | Apollo AMC',
   },
   description: site.description,
-  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: site.locale,
@@ -42,17 +49,23 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: '/appolo-logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Apollo Advanced Medical Center Logo',
+        url: '/images/apollo-medical-center-al-rigga-dubai.webp',
+        width: 1829,
+        height: 900,
+        alt: 'Apollo Advanced Medical Center in Al Rigga, Dubai',
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Apollo Advanced Medical Center',
+    description: site.description,
+    images: ['/images/apollo-medical-center-al-rigga-dubai.webp'],
+  },
   robots: { index: true, follow: true },
   icons: {
-    icon: [{ url: '/images/fevic.png' }],
-    apple: [{ url: '/images/fevic.png' }],
+    icon: [{ url: '/images/apollo-advanced-medical-center-favicon.png' }],
+    apple: [{ url: '/images/apollo-advanced-medical-center-favicon.png' }],
   },
 }
 
@@ -60,18 +73,56 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const clinicSchema = {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
+    '@id': `${site.url}/#medical-clinic`,
     name: site.name,
+    description: site.description,
     url: site.url,
-    telephone: site.contact.phone,
+    telephone: site.contact.phoneE164,
+    email: site.contact.email,
+    image: `${site.url}/images/apollo-advanced-medical-center-logo.png`,
+    logo: `${site.url}/images/apollo-advanced-medical-center-logo.png`,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: site.address.street,
       addressLocality: site.address.city,
       addressRegion: site.address.region,
-      addressCountry: site.address.country,
-      streetAddress: site.address.street,
+      addressCountry: site.address.countryCode,
     },
-    areaServed: 'Al Rigga, Union Dubai, UAE',
-    sameAs: [site.instagram.url],
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 25.2717,
+      longitude: 55.3072,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '09:00',
+        closes: '23:00',
+      },
+    ],
+    areaServed: [
+      { '@type': 'Place', name: 'Al Rigga' },
+      { '@type': 'Place', name: 'Union' },
+      { '@type': 'City', name: 'Deira' },
+      { '@type': 'City', name: 'Dubai' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Medical & Aesthetic Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Dental Services' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Laser Hair Removal' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Aesthetic & Beauty Services' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Facial & Skin Care' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Slimming & Body Contouring' } },
+      ],
+    },
+    sameAs: [
+      site.instagram.url,
+      site.facebook.url,
+      site.linkedin.url,
+    ],
   }
 
   return (
@@ -81,7 +132,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <SiteFooter />
 
-        <Script
+        <script
           id="schema-medicalclinic"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }}

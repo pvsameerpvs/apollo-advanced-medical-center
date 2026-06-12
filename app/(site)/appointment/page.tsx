@@ -1,14 +1,16 @@
-import type { Metadata } from 'next'
 import Image from 'next/image'
 
 import { AppointmentForm } from '@/components/sections/appointment-form'
 import { CtaBand } from '@/components/sections/cta-band'
+import { createPageMetadata } from '@/lib/metadata'
 
-export const metadata: Metadata = {
-  title: 'Book Appointment | Apollo Advanced Medical Center - Al Rigga, Union Dubai',
+export const metadata = createPageMetadata({
+  title: 'Book an Appointment in Al Rigga, Dubai',
   description:
     'Book an appointment at Apollo Advanced Medical Center in Al Rigga, Union Dubai. Choose your service and DHA-licensed doctor/therapist. Quick confirmation by phone or WhatsApp.',
-}
+  path: '/appointment',
+  image: '/images/apollo-medical-center-about-dubai.webp',
+})
 
 export default function AppointmentPage() {
   return (
@@ -16,7 +18,7 @@ export default function AppointmentPage() {
       {/* Hero Section */}
       <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden bg-brand-green">
         <Image
-          src="/images/about-hero.png"
+          src="/images/apollo-medical-center-about-dubai.webp"
           alt="Apollo Advanced Medical Center clinic reception for appointment booking in Al Rigga, Union Dubai"
           fill
           className="object-cover opacity-50 mix-blend-overlay"
